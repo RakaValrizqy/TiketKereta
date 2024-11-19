@@ -64,7 +64,9 @@ public class Tiket {
         System.out.println("Tanggal keberangkatan\t: "+tanggal);
         System.out.println("Kereta\t\t\t: "+kereta.getNama());
         System.out.println("Nomor kursi\t\t: "+tipe.getNamaTipe()+", "+kursi.getNomorKursi());
-        System.out.println("Railfood\t\t: "+railfood);
-        System.out.println("Petugas\t\t\t: "+petugas);
+        if (railfood != null) {
+            System.out.println("Railfood\t\t: "+railfood);
+            System.out.println("Petugas\t\t\t: "+petugas);
+        }
     }
 }
