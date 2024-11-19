@@ -27,4 +27,8 @@ public class Pemesan extends Pengguna {
             penumpang.printInfo();
         }
     }
+    
+    public Penumpang getPenumpang(int index){
+        return listPenumpang[index];
+    }
 }

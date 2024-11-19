@@ -42,4 +42,8 @@ public class Kereta {
         return nama;
     }
     
+    public TipeKelas getTipeKelas(int index){
+        return tipe[index];
+    }
+    
 }

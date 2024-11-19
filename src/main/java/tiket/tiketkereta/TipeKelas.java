@@ -18,7 +18,7 @@ public class TipeKelas {
         this.harga = harga;
         switch (namaTipe){
             case "Ekonomi" -> {
-                KursiPenumpang[] listKursi = {
+                listKursi = new KursiPenumpang[] {
                     (new KursiPenumpang("1A")), (new KursiPenumpang("1B")), (new KursiPenumpang("1C")), (new KursiPenumpang("1D")), (new KursiPenumpang("1E")),
                     (new KursiPenumpang("2A")), (new KursiPenumpang("2B")), (new KursiPenumpang("2C")), (new KursiPenumpang("2D")), (new KursiPenumpang("2E")),
                     (new KursiPenumpang("3A")), (new KursiPenumpang("3B")), (new KursiPenumpang("3C")), (new KursiPenumpang("3D")), (new KursiPenumpang("3E")),
@@ -42,7 +42,7 @@ public class TipeKelas {
                 };
             }
             case "Bisnis" -> {
-                KursiPenumpang[] listKursi = {
+                listKursi = new KursiPenumpang[] {
                    (new KursiPenumpang("1A")), (new KursiPenumpang("1B")), (new KursiPenumpang("1C")), (new KursiPenumpang("1D")),
                    (new KursiPenumpang("2A")), (new KursiPenumpang("2B")), (new KursiPenumpang("2C")), (new KursiPenumpang("2D")),
                    (new KursiPenumpang("3A")), (new KursiPenumpang("3B")), (new KursiPenumpang("3C")), (new KursiPenumpang("3D")),
@@ -63,7 +63,7 @@ public class TipeKelas {
                 };
             }
             case "Eksekutif" -> {
-                KursiPenumpang[] listKursi = {
+                listKursi = new KursiPenumpang[] {
                    (new KursiPenumpang("1A")), (new KursiPenumpang("1B")), (new KursiPenumpang("1C")), (new KursiPenumpang("1D")),
                    (new KursiPenumpang("2A")), (new KursiPenumpang("2B")), (new KursiPenumpang("2C")), (new KursiPenumpang("2D")),
                    (new KursiPenumpang("3A")), (new KursiPenumpang("3B")), (new KursiPenumpang("3C")), (new KursiPenumpang("3D")),
@@ -91,6 +91,13 @@ public class TipeKelas {
     public int getHarga() {
         return harga;
     }
+
+    public KursiPenumpang[] getListKursi() {
+        return listKursi;
+    }
     
+    public KursiPenumpang getKursi(int index){
+        return listKursi[index];
+    }
     
 }

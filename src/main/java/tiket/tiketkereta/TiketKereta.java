@@ -11,6 +11,33 @@ package tiket.tiketkereta;
 public class TiketKereta {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        // logIn() Pengguna
+        String email = "def@gmail.com";
+        String password = "456";
+        int i = 0;
+        Pemesan currentUser = null;
+        while (currentUser == null && i < Utility.listUser.length) {
+            if (Utility.listUser[i].logIn(email, password)) {
+                currentUser = (Pemesan) Utility.listUser[i];
+                break;
+            }
+            i++;
+        }
+        
+        if (currentUser == null) {
+            System.out.println("\nAkun tidak ditemukan, pastikan email dan password benar.");
+        } else {
+            System.out.println("\nSelamat Datang!");
+            currentUser.printInfo();
+        }
+        
+        currentUser.showAllPenumpang();
+        
+        //coba create tiket
+        String tgl = "19/11/2024";
+        Tiket tick = new Tiket(currentUser.getPenumpang(0),currentUser,tgl,Utility.listKereta[2],Utility.listKereta[2].getTipeKelas(2));
+        tick.printInfo();
+        
     }
 }
