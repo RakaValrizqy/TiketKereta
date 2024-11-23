@@ -22,6 +22,7 @@ public class Tiket {
     private int harga_tiket;
     private Railfood railfood;
     private Petugas petugas;
+    private String status;
 
     public Tiket(Penumpang penumpang, Pemesan pemesan, String tanggal, Kereta kereta, TipeKelas tipe) {
         this.kodeTiket = Utility.generateKode();
@@ -31,6 +32,7 @@ public class Tiket {
         this.kereta = kereta;
         this.tipe = tipe;
         this.kursi = Utility.assignKursiPenumpang(tipe.getListKursi());
+        this.status = "Booked";
     }
 
     public Tiket(Penumpang penumpang, Pemesan pemesan, String tanggal, Kereta kereta, TipeKelas tipe, Railfood railfood) {
@@ -43,8 +45,16 @@ public class Tiket {
         this.kursi = Utility.assignKursiPenumpang(tipe.getListKursi());
         this.railfood = railfood;
         this.petugas = Utility.assignPetugas();
+        this.status = "Booked";
     }
 
+    public void cancelTiket(){
+        this.status = "Canceled";
+    }
+    
+    public void rescheduleTiket(String tgl){
+        this.tanggal = tgl;
+    }
     
  
     public boolean isKodeAvailable(String kode){
