@@ -30,6 +30,12 @@ public class Petugas extends Pengguna {
         return posisi;
     }
 
+    public String getNama_petugas() {
+        return nama_petugas;
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Nama Petugas : " + nama_petugas + ", Posisi : " + posisi;
