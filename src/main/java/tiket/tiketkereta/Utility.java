@@ -26,10 +26,7 @@ public class Utility {
         (new Kereta("Malabar",300000,400000,500000,listStasiun[1],listStasiun[0],listJadwal[1])),
         (new Kereta("Tawang Alun",40000,50000,60000,listStasiun[2],listStasiun[1],listJadwal[2]))
     };
-    static Tiket[] listTiket = {
-            //(new Tiket()),
-            //(new Tiket("AAAAA"))
-    };
+    
     static Pengguna[] listUser = {
         (new Pemesan("abc@gmail.com", "123", 1000000, 
             new Penumpang[] {
@@ -48,15 +45,25 @@ public class Utility {
             })),
       };
     
+    public static Railfood[] listRailfood = {
+        new Railfood("Pop Mie",10000),
+        new Railfood("Air Mineral",4000)
+    };
+    
+    
     public static Petugas[] listPetugas = {
         new Petugas("pet1@p.p","123","Prasetyo","Pramugara"),
         new Petugas("pet2@p.p","123","Vi","Pramugari"),
     };
     
-    public static Railfood[] listRailfood = {
-        new Railfood("Pop Mie",10000),
-        new Railfood("Air Mineral",4000)
+    static Tiket[] listTiket = {
+            new Tiket(((Pemesan) listUser[1]).getPenumpang(0),((Pemesan) listUser[1]),"24/11/2024",listKereta[2],listKereta[2].getTipeKelas(2)),
+            new Tiket(((Pemesan) listUser[1]).getPenumpang(1),((Pemesan) listUser[1]),"1/12/2024",listKereta[1],listKereta[1].getTipeKelas(1),listRailfood[0]),
+            new Tiket(((Pemesan) listUser[0]).getPenumpang(1),((Pemesan) listUser[0]),"1/12/2024",listKereta[1],listKereta[1].getTipeKelas(1),listRailfood[1]),
+            new Tiket(((Pemesan) listUser[2]).getPenumpang(0),((Pemesan) listUser[2]),"1/12/2024",listKereta[0],listKereta[0].getTipeKelas(0),listRailfood[0]),
     };
+    
+    
     
     public static String generateKode(){
         StringBuilder sb = new StringBuilder ();
