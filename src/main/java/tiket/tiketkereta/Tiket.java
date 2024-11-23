@@ -30,17 +30,19 @@ public class Tiket {
         this.tanggal = tanggal;
         this.kereta = kereta;
         this.tipe = tipe;
-        int rnd = new Random().nextInt(tipe.getListKursi().length);
-        this.kursi = tipe.getKursi(rnd);
+        this.kursi = Utility.assignKursiPenumpang(tipe.getListKursi());
     }
 
     public Tiket(Penumpang penumpang, Pemesan pemesan, String tanggal, Kereta kereta, TipeKelas tipe, Railfood railfood) {
+        this.kodeTiket = Utility.generateKode();
         this.penumpang = penumpang;
         this.pemesan = pemesan;
         this.tanggal = tanggal;
         this.kereta = kereta;
         this.tipe = tipe;
+        this.kursi = Utility.assignKursiPenumpang(tipe.getListKursi());
         this.railfood = railfood;
+        this.petugas = Utility.assignPetugas();
     }
 
     
@@ -65,8 +67,8 @@ public class Tiket {
         System.out.println("Kereta\t\t\t: "+kereta.getNama());
         System.out.println("Nomor kursi\t\t: "+tipe.getNamaTipe()+", "+kursi.getNomorKursi());
         if (railfood != null) {
-            System.out.println("Railfood\t\t: "+railfood);
-            System.out.println("Petugas\t\t\t: "+petugas);
+            System.out.println("Railfood\t\t: "+railfood.getNama());
+            System.out.println("Petugas\t\t\t: "+petugas.getNama_petugas());
         }
     }
 }
