@@ -31,22 +31,32 @@ public class Utility {
             //(new Tiket("AAAAA"))
     };
     static Pengguna[] listUser = {
-            (new Pemesan("abc@gmail.com", "123", 1000000, 
-                new Penumpang[] {
-                    (new Penumpang("Lima", "19112024")),
-                    (new Penumpang("Dina", "11111111")),
-                })),
-            (new Pemesan("def@gmail.com", "456", 1000000, 
-                new Penumpang[] {
-                    (new Penumpang("Bagas", "22222222")),
-                    (new Penumpang("Duhan", "33333333")),
-                })),
-            (new Pemesan("ghi@gmail.com", "456", 1000000, 
-                new Penumpang[] {
-                    (new Penumpang("Raka", "44444444")),
-                    (new Penumpang("Elzio", "55555555")),
-                })),
-        };
+        (new Pemesan("abc@gmail.com", "123", 1000000, 
+            new Penumpang[] {
+                (new Penumpang("Lima", "19112024")),
+                (new Penumpang("Dina", "11111111")),
+            })),
+        (new Pemesan("def@gmail.com", "456", 1000000, 
+            new Penumpang[] {
+                (new Penumpang("Bagas", "22222222")),
+                (new Penumpang("Duhan", "33333333")),
+            })),
+        (new Pemesan("ghi@gmail.com", "456", 1000000, 
+            new Penumpang[] {
+                (new Penumpang("Raka", "44444444")),
+                (new Penumpang("Elzio", "55555555")),
+            })),
+      };
+    
+    public static Petugas[] listPetugas = {
+        new Petugas("pet1@p.p","123","Prasetyo","Pramugara"),
+        new Petugas("pet2@p.p","123","Vi","Pramugari"),
+    };
+    
+    public static Railfood[] listRailfood = {
+        new Railfood("Pop Mie",10000),
+        new Railfood("Air Mineral",4000)
+    };
     
     public static String generateKode(){
         StringBuilder sb = new StringBuilder ();
@@ -57,5 +67,19 @@ public class Utility {
         }
 
         return sb.toString();
+    }
+    
+    public static Petugas assignPetugas(){
+        int rnd = new Random().nextInt(listPetugas.length);
+        return listPetugas[rnd];
+    }
+    
+    public static KursiPenumpang assignKursiPenumpang(KursiPenumpang[] listKursi){
+        int rnd = new Random().nextInt(listKursi.length);
+        return listKursi[rnd];
+    }
+    
+    public static void separator(){
+        System.out.println("------------------------------------------------------------------------");
     }
 }
