@@ -33,11 +33,13 @@ public class TiketKereta {
         }
         
         currentUser.showAllPenumpang();
-        
+        Utility.separator();
         //coba create tiket
         String tgl = "19/11/2024";
         Tiket tick = new Tiket(currentUser.getPenumpang(0),currentUser,tgl,Utility.listKereta[2],Utility.listKereta[2].getTipeKelas(2));
         tick.printInfo();
-        
+        Utility.separator();
+        Tiket tick2 = new Tiket(currentUser.getPenumpang(1),currentUser,tgl,Utility.listKereta[1],Utility.listKereta[1].getTipeKelas(1),Utility.listRailfood[0]);
+        tick2.printInfo();
     }
 }
