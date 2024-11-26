@@ -97,7 +97,7 @@ public class Pemesan extends Pengguna {
             } else {
                 System.out.println("Harga Tiket: Rp "+selectedTipe.getHarga());
                 System.out.println("Harga "+selectedRailfood.getNama()+": Rp "+selectedRailfood.getHarga());
-                System.out.println("Total tagihan: Rp"+selectedTipe.getHarga());
+                System.out.println("Total tagihan: Rp "+selectedTipe.getHarga());
                 saldo.bayar(selectedRailfood.getHarga()+selectedTipe.getHarga());
                 Utility.listTiket.add(new Tiket(selectedPenumpang,this,tanggal,selectedKereta,selectedTipe,selectedRailfood));
             }

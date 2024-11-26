@@ -4,6 +4,8 @@
 
 package tiket.tiketkereta;
 
+import java.util.Scanner;
+
 /**
  *
  * @author RVA
@@ -11,41 +13,33 @@ package tiket.tiketkereta;
 public class TiketKereta {
 
     public static void main(String[] args) {
-        
+        Scanner in = new Scanner(System.in);
         // logIn() Pengguna
-        String email = "def@gmail.com";
-        String password = "456";
-        int i = 0;
-        Pemesan currentUser = null;
-        while (currentUser == null && i < Utility.listUser.length) {
-            if (Utility.listUser[i].logIn(email, password)) {
-                currentUser = (Pemesan) Utility.listUser[i];
-                break;
+        Pengguna currentUser=null;
+        int pilihLogin=0;
+        String email,password;
+        
+        
+        while (currentUser==null && pilihLogin != 3){
+            System.out.println("-----------------------------MENU LOGIN---------------------------------");
+            System.out.println("1. Login sebagai pemesan");
+            System.out.println("2. Login sebagai petugas");
+            System.out.println("3. Keluar");
+            System.out.print("Pilih: ");
+            pilihLogin = in.nextInt();
+            switch (pilihLogin) {
+                case 1:
+                    System.out.print("Masukkan email: ");
+                    email = in.next();
+                    System.out.print("Masukkan password: ");
+                    password = in.next();
+                    currentUser = (Pemesan) Utility.findPemesan(email, password);
+                    if (currentUser==null) {
+                        System.out.println("Akun tidak ditemukan");
+                    } else {
+                        System.out.println("Selamat datang "+currentUser.getEmail());
+                    }
             }
-            i++;
         }
-        
-        if (currentUser == null) {
-            System.out.println("\nAkun tidak ditemukan, pastikan email dan password benar.");
-        } else {
-            System.out.println("\nSelamat Datang!");
-            currentUser.printInfo();
-        }
-        
-        currentUser.showAllPenumpang();
-        Utility.separator();
-        //coba create tiket
-        for (Tiket tick : Utility.listTiket) {
-            tick.printInfo();
-            Utility.separator();
-        }
-        
-        Utility.cekTiketPemesan(currentUser);
-        Utility.cekTiketPetugas(Utility.listPetugas[1]);
-
-        currentUser.cekSaldo();
-        currentUser.bookTiket();
-        
-        Utility.cekTiketPemesan(currentUser);
     }
 }

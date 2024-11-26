@@ -141,4 +141,21 @@ public class Utility {
             i++;
         }
     }
+    
+    public static Pengguna findPemesan(String email, String password){
+        int i=0;
+        Pengguna foundUser = null;
+        while (foundUser == null && i < Utility.listUser.length) {
+            if (Utility.listUser[i].logIn(email, password)) {
+                foundUser = Utility.listUser[i];
+                return foundUser;
+            }
+            i++;
+        }
+        return null;
+    }
+    
+    public void menuPemesan(){
+        
+    }
 }
