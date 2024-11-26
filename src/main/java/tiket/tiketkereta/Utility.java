@@ -96,6 +96,16 @@ public class Utility {
             }
         }
     }
+
+    public static void cekTiketPetugas(Petugas petugas) {
+        System.out.println("Tiket yang ditugaskan untuk petugas ini adalah: " + petugas.getNama_petugas());
+        for (Tiket tiket : listTiket) {
+            if (tiket.getPetugas() == petugas) {
+                tiket.printInfo();
+                separator();
+            }
+        }
+    }
     
     public static void separator(){
         System.out.println("------------------------------------------------------------------------");
