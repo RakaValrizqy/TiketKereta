@@ -21,6 +21,10 @@ public class Pemesan extends Pengguna {
     // public void bookTicket();
     
     // public void orderRailfood();
+
+    public void cekSaldo() {
+        System.out.println("Sisa saldo " + super.getEmail() + ": Rp " + saldo.getJumlahSaldo());
+    }
     
     public void showAllPenumpang() {
         for (Penumpang penumpang : listPenumpang) {
