@@ -40,6 +40,7 @@ public class TiketKereta {
             Utility.separator();
         }
 
-         Utility.cekTiketPemesan(currentUser);
+        Utility.cekTiketPemesan(currentUser);
+        Utility.cekTiketPetugas(Utility.listPetugas[1]);
     }
 }
