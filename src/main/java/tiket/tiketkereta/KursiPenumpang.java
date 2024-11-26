@@ -14,7 +14,7 @@ public class KursiPenumpang {
 
     public KursiPenumpang(String nomorKursi) {
         this.nomorKursi = nomorKursi;
-        this.status = "true";
+        this.status = "Tersedia";
     }
 
     public String getNomorKursi() {
@@ -22,11 +22,16 @@ public class KursiPenumpang {
     }
     
     public boolean checkStatus(){
-        return this.status == "true";
+        return this.status == "Tersedia";
     }
     
     public void bookKursi(){
-        
+        if (checkStatus()) {
+            this.status = "Tersedia";
+            System.out.println("Kursi dengan nomor " + nomorKursi + " berhasil dipesan.");
+        } else {
+            System.out.println("Maaf, kursi dengan nomor " + nomorKursi + " sudah terjual.");
+        }
     }
     
 }
