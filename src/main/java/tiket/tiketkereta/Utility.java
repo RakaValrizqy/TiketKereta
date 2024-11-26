@@ -92,7 +92,7 @@ public class Utility {
             for (Tiket tiket : listTiket) {
                 if (tiket.getPemesan() == pemesan && tiket.getStatus().equals("Booked")) {
                     tiket.printInfo();
-                    System.out.println("------------------------------------------------------------------------");
+                    separator();
                 }
         }
     }
@@ -100,7 +100,7 @@ public class Utility {
     public static void cekTiketPetugas(Petugas petugas) {
         System.out.println("Tiket yang ditugaskan untuk petugas ini adalah: " + petugas.getNama_petugas());
         for (Tiket tiket : listTiket) {
-            if (tiket.getPetugas() == petugas) {
+            if (tiket.getPetugas() == petugas && tiket.getStatus().equals("Booked")) {
                 tiket.printInfo();
                 separator();
             }
