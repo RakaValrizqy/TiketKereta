@@ -28,25 +28,38 @@ public class Saldo {
     
     public void bayar(int jumlah) {
         Scanner in = new Scanner(System.in);
-        int tempBalance = getJumlahSaldo();
-        if (jumlah > 0) {
-            if (getJumlahSaldo() >= 0) {
-                tempBalance -= jumlah;
-                if (tempBalance < 0) {
-                    System.out.println("Saldo anda tidak cukup, silahkan Top Up terlebih dahulu");   
-                } else {
-                    this.jumlahSaldo -= jumlah;
-                    System.out.println("===== Pembayaran berhasil =====");
-                    System.out.printf("Pembayaran sebesar : Rp %d,00\n", jumlah);
-                    System.out.printf("Sisa saldo : Rp %d,00\n", getJumlahSaldo());
-                    System.out.println("===============================");
+        if (getJumlahSaldo() < jumlah) {
+            boolean isAccess = false;
+            System.out.println();
+            while (!isAccess) {
+                separator();
+                System.out.println("Maaf saldo anda kurang, silahkan Top Up terlebih dahulu");
+                System.out.println();
+                System.out.printf("Saldo anda saat ini: Rp %d,00\n", getJumlahSaldo());
+                System.out.printf("Total kekurangan saldo: Rp %d,00\n", (getJumlahSaldo()-jumlah)*-1);
+                System.out.println();
+                System.out.print("Masukkan jumlah Top Up: ");
+                int nominal = in.nextInt();
+                topUp(nominal);
+                System.out.println();
+                if (getJumlahSaldo() >= jumlah) {
+                    isAccess = true;
                 }
             }
-        } else {
-            System.out.println("Nominal bayar tidak boleh nol atau kurang dari nol.");
+        }
+        if (getJumlahSaldo() >= jumlah) {
+            this.jumlahSaldo -= jumlah;
+            System.out.println("================== Pembayaran berhasil ==================");
+            System.out.printf("Pembayaran sebesar : Rp %d,00\n", jumlah);
+            System.out.printf("Sisa saldo : Rp %d,00\n", getJumlahSaldo());
+            separator();
         }
     }
-
+    
+    public void separator() {
+        System.out.println("=========================================================");
+    }
+    
     public void printInfo() {
         System.out.println("Jumlah Saldo : " + getJumlahSaldo());
         System.out.println();
