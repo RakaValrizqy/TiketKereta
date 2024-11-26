@@ -86,14 +86,14 @@ public class Utility {
         return listKursi[rnd];
     }
 
-    public static void cekTiketPemesan(Pemesan pemesan){
+    public static void cekTiket(Pemesan pemesan){
         // pemesan mengecek info penumpang dan tiket apa saja yang telah dipesan
         System.out.println("Tiket yang telah dipesan oleh: " + pemesan.getEmail());
             for (Tiket tiket : listTiket) {
-                if (tiket.getPemesan() == pemesan) {
+                if (tiket.getPemesan() == pemesan && tiket.getStatus().equals("Booked")) {
                     tiket.printInfo();
                     System.out.println("------------------------------------------------------------------------");
-            }
+                }
         }
     }
 
