@@ -39,5 +39,7 @@ public class TiketKereta {
             tick.printInfo();
             Utility.separator();
         }
+
+         Utility.cekTiketPemesan(currentUser);
     }
 }
