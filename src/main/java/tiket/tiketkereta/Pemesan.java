@@ -57,7 +57,7 @@ public class Pemesan extends Pengguna {
             selectedKereta = Utility.findKereta(namaKereta, asal, tujuan);
             System.out.println(selectedKereta.getNama());
             selectedKereta.showAllTipe();
-            //System.out.println("Pilih nomor tipe: ");
+            System.out.print("Pilih nomor tipe: ");
             idxTipe = in.nextInt();
             while (idxTipe < 1 || idxTipe>3){
                 System.out.print("Pilihan tidak valid!\nPilih nomor tipe: ");
@@ -86,14 +86,20 @@ public class Pemesan extends Pengguna {
                     idxRailfood = in.nextInt();
                 }
                 selectedRailfood = Utility.listRailfood[idxRailfood-1];
-                System.out.println(selectedRailfood.getNama());
-//                if (saldo.getJumlahSaldo()<selectedRailfood.getHarga()+selectedTipe.getHarga()) {
-//                    System.out.println("Saldo anda tidak cukup");
-//                    System.out.println("");
-//                }
-                saldo.bayar(selectedRailfood.getHarga()+selectedTipe.getHarga());
-            } else {
                 
+            }
+            
+            if (selectedRailfood==null) {
+                System.out.println("Harga Tiket: Rp "+selectedTipe.getHarga());
+                System.out.println("Total tagihan: Rp"+selectedTipe.getHarga());
+                saldo.bayar(selectedTipe.getHarga());
+                Utility.listTiket.add(new Tiket(selectedPenumpang,this,tanggal,selectedKereta,selectedTipe));
+            } else {
+                System.out.println("Harga Tiket: Rp "+selectedTipe.getHarga());
+                System.out.println("Harga "+selectedRailfood.getNama()+": Rp "+selectedRailfood.getHarga());
+                System.out.println("Total tagihan: Rp"+selectedTipe.getHarga());
+                saldo.bayar(selectedRailfood.getHarga()+selectedTipe.getHarga());
+                Utility.listTiket.add(new Tiket(selectedPenumpang,this,tanggal,selectedKereta,selectedTipe,selectedRailfood));
             }
         }
         

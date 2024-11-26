@@ -4,6 +4,7 @@
  */
 package tiket.tiketkereta;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -33,7 +34,7 @@ public class Utility {
                 (new Penumpang("Lima", "19112024")),
                 (new Penumpang("Dina", "11111111")),
             })),
-        (new Pemesan("def@gmail.com", "456", 1000000, 
+        (new Pemesan("def@gmail.com", "456", 100000, 
             new Penumpang[] {
                 (new Penumpang("Bagas", "22222222")),
                 (new Penumpang("Duhan", "33333333")),
@@ -56,13 +57,14 @@ public class Utility {
         new Petugas("pet2@p.p","123","Vi","Pramugari"),
     };
     
-    static Tiket[] listTiket = {
-            new Tiket(((Pemesan) listUser[1]).getPenumpang(0),((Pemesan) listUser[1]),"24/11/2024",listKereta[2],listKereta[2].getTipeKelas(2)),
-            new Tiket(((Pemesan) listUser[1]).getPenumpang(1),((Pemesan) listUser[1]),"1/12/2024",listKereta[1],listKereta[1].getTipeKelas(1),listRailfood[0]),
-            new Tiket(((Pemesan) listUser[0]).getPenumpang(1),((Pemesan) listUser[0]),"1/12/2024",listKereta[1],listKereta[1].getTipeKelas(1),listRailfood[1]),
-            new Tiket(((Pemesan) listUser[2]).getPenumpang(0),((Pemesan) listUser[2]),"1/12/2024",listKereta[0],listKereta[0].getTipeKelas(0),listRailfood[0]),
-    };
+    public static ArrayList<Tiket> listTiket = new ArrayList<>();
     
+    static {
+        listTiket.add(new Tiket(((Pemesan) listUser[1]).getPenumpang(0), ((Pemesan) listUser[1]), "24/11/2024", listKereta[2], listKereta[2].getTipeKelas(2)));
+        listTiket.add(new Tiket(((Pemesan) listUser[1]).getPenumpang(1), ((Pemesan) listUser[1]), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas(1), listRailfood[0]));
+        listTiket.add(new Tiket(((Pemesan) listUser[0]).getPenumpang(1), ((Pemesan) listUser[0]), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas(1), listRailfood[1]));
+        listTiket.add(new Tiket(((Pemesan) listUser[2]).getPenumpang(0), ((Pemesan) listUser[2]), "1/12/2024", listKereta[0], listKereta[0].getTipeKelas(0), listRailfood[0]));
+    } 
     
     
     public static String generateKode(){

@@ -45,5 +45,7 @@ public class TiketKereta {
 
         currentUser.cekSaldo();
         currentUser.bookTiket();
+        
+        Utility.cekTiketPemesan(currentUser);
     }
 }
