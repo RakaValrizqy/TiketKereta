@@ -4,6 +4,8 @@
  */
 package tiket.tiketkereta;
 
+import java.util.Scanner;
+
 /**
  *
  * @author bagas
@@ -25,12 +27,13 @@ public class Saldo {
     }
     
     public void bayar(int jumlah) {
+        Scanner in = new Scanner(System.in);
         int tempBalance = getJumlahSaldo();
         if (jumlah > 0) {
             if (getJumlahSaldo() >= 0) {
                 tempBalance -= jumlah;
                 if (tempBalance < 0) {
-                    System.out.println("Saldo anda tidak cukup, silahkan Top Up terlebih dahulu");
+                    System.out.println("Saldo anda tidak cukup, silahkan Top Up terlebih dahulu");   
                 } else {
                     this.jumlahSaldo -= jumlah;
                     System.out.println("===== Pembayaran berhasil =====");

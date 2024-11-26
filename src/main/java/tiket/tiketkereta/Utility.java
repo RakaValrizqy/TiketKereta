@@ -22,9 +22,9 @@ public class Utility {
         (new Stasiun("Jember","Jember")),
     };
     static Kereta[] listKereta = {
-        (new Kereta("Mutiara Selatan",200000,300000,400000,listStasiun[1],listStasiun[0],listJadwal[0])),
+        (new Kereta("Mutiara_Selatan",200000,300000,400000,listStasiun[1],listStasiun[0],listJadwal[0])),
         (new Kereta("Malabar",300000,400000,500000,listStasiun[1],listStasiun[0],listJadwal[1])),
-        (new Kereta("Tawang Alun",40000,50000,60000,listStasiun[2],listStasiun[1],listJadwal[2]))
+        (new Kereta("Tawang_Alun",40000,50000,60000,listStasiun[2],listStasiun[1],listJadwal[2]))
     };
     
     static Pengguna[] listUser = {
@@ -83,6 +83,9 @@ public class Utility {
     
     public static KursiPenumpang assignKursiPenumpang(KursiPenumpang[] listKursi){
         int rnd = new Random().nextInt(listKursi.length);
+        while (!listKursi[rnd].checkStatus()){
+            rnd = new Random().nextInt(listKursi.length);
+        }
         return listKursi[rnd];
     }
 
@@ -109,5 +112,31 @@ public class Utility {
     
     public static void separator(){
         System.out.println("------------------------------------------------------------------------");
+    }
+    
+    public static boolean checkKeretaOnRoad(String asal, String tujuan){
+        for (Kereta train:listKereta) {
+            if (train.isOnRoute(asal, tujuan)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static Kereta findKereta(String nama, String asal, String tujuan){
+        for (Kereta train:listKereta){
+            if (train.getNama().equalsIgnoreCase(nama)&&train.isOnRoute(asal, tujuan)) {
+                return train;
+            }
+        }
+        return null;
+    }
+    
+    public static void showAllRailfood(){
+        int i = 1;
+        for (Railfood food:listRailfood) {
+            System.out.println(i+". "+food.getNama()+" Rp "+food.getHarga());
+            i++;
+        }
     }
 }

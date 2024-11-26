@@ -44,5 +44,6 @@ public class TiketKereta {
         Utility.cekTiketPetugas(Utility.listPetugas[1]);
 
         currentUser.cekSaldo();
+        currentUser.bookTiket();
     }
 }

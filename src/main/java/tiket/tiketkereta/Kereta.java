@@ -46,4 +46,12 @@ public class Kereta {
         return tipe[index];
     }
     
+    public void showAllTipe(){
+        int i=1;
+        for (TipeKelas type:tipe){
+            System.out.println(i+". Kelas "+type.getNamaTipe()+" Rp "+type.getHarga());
+            i++;
+        }
+    }
+    
 }

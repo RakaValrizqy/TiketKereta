@@ -26,6 +26,6 @@ public class Penumpang {
     }
 
     public void printInfo() {
-        System.out.println("Penumpang | Nama: " + name + ", NIK: " + nik);
+        System.out.println("Nama: " + name + ", NIK: " + nik);
     }
 }
