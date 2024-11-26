@@ -71,6 +71,15 @@ public class Tiket {
     public Pemesan getPemesan() {
         return pemesan;
     }
+
+    public Petugas getPetugas() {
+        return petugas;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+    
     
     public void printInfo(){
         System.out.println("Kode Tiket\t\t: "+kodeTiket);
