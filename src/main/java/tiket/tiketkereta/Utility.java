@@ -93,7 +93,7 @@ public class Utility {
                 if (tiket.getPemesan() == pemesan) {
                     tiket.printInfo();
                     System.out.println("------------------------------------------------------------------------");
-                }
+            }
         }
     }
     
