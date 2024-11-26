@@ -56,7 +56,6 @@ public class Tiket {
         this.tanggal = tgl;
     }
     
- 
     public boolean isKodeAvailable(String kode){
         boolean status = true;
         if (kode.equals(kodeTiket)) {
@@ -67,6 +66,10 @@ public class Tiket {
 
     public String getKodeTiket() {
         return kodeTiket;
+    }
+
+    public Pemesan getPemesan() {
+        return pemesan;
     }
     
     public void printInfo(){
