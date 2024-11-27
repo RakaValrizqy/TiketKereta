@@ -6,6 +6,7 @@ package tiket.tiketkereta;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -153,6 +154,29 @@ public class Utility {
             i++;
         }
         return null;
+    }
+    
+    public static Petugas findPetugas(String email, String password) {
+        int i = 0;
+        Petugas found = null;
+        while (found == null && i < listPetugas.length) {
+            if (listPetugas[i].logIn(email, password)) {
+                found = listPetugas[i];
+                return found;
+            }
+            i++;
+        }
+        return null;
+    }
+    
+    public static int menuPetugas() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("====== Menu Petugas ======");
+        System.out.println("1. Lihat Pesanan Railfood");
+        System.out.println("2. Log-out");
+        System.out.print("\nPilih: ");
+        int pilih = in.nextInt();
+        return pilih;
     }
     
     public void menuPemesan(){
