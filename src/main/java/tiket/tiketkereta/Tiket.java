@@ -82,15 +82,15 @@ public class Tiket {
     
     
     public void printInfo(){
-        System.out.println("Kode Tiket\t\t: "+kodeTiket);
-        System.out.println("Pemesan\t\t\t: "+pemesan.getEmail());
-        System.out.println("Penumpang\t\t: "+penumpang.getName()+", "+penumpang.getNIK());
-        System.out.println("Tanggal keberangkatan\t: "+tanggal);
-        System.out.println("Kereta\t\t\t: "+kereta.getNama());
-        System.out.println("Nomor kursi\t\t: "+tipe.getNamaTipe()+", "+kursi.getNomorKursi());
+        System.out.println("Kode Tiket\t\t: " + kodeTiket);
+        System.out.println("Pemesan\t\t\t: " + pemesan.getEmail());
+        System.out.println("Penumpang\t\t: " + penumpang.getName()+", "+penumpang.getNIK());
+        System.out.println("Tanggal keberangkatan\t: " + tanggal);
+        System.out.println("Kereta\t\t\t: " + kereta.getNama());
+        System.out.println("Nomor kursi\t\t: " + tipe.getNamaTipe()+", "+kursi.getNomorKursi());
         if (railfood != null) {
-            System.out.println("Railfood\t\t: "+railfood.getNama());
-            System.out.println("Petugas\t\t\t: "+petugas.getNama_petugas());
+            System.out.println("Railfood\t\t: " + railfood.getNama());
+            System.out.println("Petugas\t\t\t: " + petugas.getNama_petugas());
         }
     }
 }
