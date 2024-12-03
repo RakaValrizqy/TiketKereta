@@ -61,8 +61,7 @@ public class TiketKereta {
                                         System.out.print("Input tanggal keberangkatan baru: ");
                                         String tgl = in.next();
                                         selectedTiket.rescheduleTiket(tgl);
-                                        System.out.println("Tiket berhasil dibatalkan");
-                                        
+                                        System.out.println("Tiket berhasil diubah jadwal");
                                     } else {
                                         System.out.println("Kode tiket tidak ditemukan");
                                     }
