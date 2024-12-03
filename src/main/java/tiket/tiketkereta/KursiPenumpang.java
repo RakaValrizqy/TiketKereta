@@ -22,7 +22,7 @@ public class KursiPenumpang {
     }
     
     public boolean checkStatus(){
-        return this.status == "Tersedia";
+        return this.status.equals("Tersedia");
     }
     
     public void bookKursi(){
