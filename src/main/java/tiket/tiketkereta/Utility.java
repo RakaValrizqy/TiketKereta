@@ -179,7 +179,18 @@ public class Utility {
         return pilih;
     }
     
-    public void menuPemesan(){
-        
+    public static int menuPemesan(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("----- Menu Pemesan -----");
+        System.out.println("1. Pesan Tiket");
+        System.out.println("2. Lihat Tiket yang Dipesan");
+        System.out.println("3. Resechedule Ticket");
+        System.out.println("4. Cancel Ticket");
+        System.out.println("5. Lihat Data Penumpang");
+        System.out.println("6. Cek Saldo");
+        System.out.println("7. Logout");
+        System.out.print("\nPilih: ");
+        int pilih = in.nextInt();
+        return pilih;
     }
 }

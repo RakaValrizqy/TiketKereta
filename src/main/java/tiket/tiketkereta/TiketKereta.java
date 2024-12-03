@@ -16,8 +16,8 @@ public class TiketKereta {
         Scanner in = new Scanner(System.in);
         // logIn() Pengguna
         Petugas petugas = null;
-        Pengguna currentUser=null;
-        int pilihLogin=0, pilihPetugas = 0;
+        Pemesan currentUser=null;
+        int pilihLogin=0, pilihPetugas = 0, pilihPemesan = 0;
         String email,password;
         boolean isAccessMainMenu = true;
         
@@ -39,7 +39,36 @@ public class TiketKereta {
                     if (currentUser==null) {
                         System.out.println("Akun tidak ditemukan");
                     } else {
+                        Utility.separator();
                         System.out.println("Selamat datang "+currentUser.getEmail());
+                        System.out.println();
+                        boolean isAccess = true;
+                        while (isAccess){
+                            pilihPemesan = Utility.menuPemesan();
+                            switch (pilihPemesan){
+                                case 1:
+                                    currentUser.bookTiket();
+                                    break;
+                                case 2:
+                                    Utility.cekTiketPemesan(currentUser);
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:
+                                    break;
+                                case 7:
+                                    System.out.println("Berhasil logout.");
+                                    // isAccess = false;
+                                    break;
+                                default:
+                                    System.out.println("Input tidak valid, silahkan input kembali");
+                                    break;
+                            }
+                        }
                     }
                     break;
                 case 2:
