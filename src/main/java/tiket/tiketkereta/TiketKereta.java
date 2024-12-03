@@ -80,6 +80,8 @@ public class TiketKereta {
                                     }
                                     break;
                                 case 5:
+                                    System.out.println("Daftar penumpang: ");
+                                    currentUser.showAllPenumpang();
                                     break;
                                 case 6:
                                     System.out.println("Jumlah Saldo: " + saldo.getJumlahSaldo());
