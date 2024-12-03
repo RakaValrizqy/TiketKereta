@@ -19,7 +19,7 @@ public class TiketKereta {
         Pemesan currentUser=null;
         int pilihLogin=0, pilihPetugas = 0, pilihPemesan = 0;
         String email,password;
-        Saldo saldo = new Saldo(0);
+        Saldo saldo;
         boolean isAccessMainMenu = true;
         Tiket selectedTiket=null;
         
@@ -84,6 +84,7 @@ public class TiketKereta {
                                     currentUser.showAllPenumpang();
                                     break;
                                 case 6:
+                                    saldo = currentUser.getSaldo();
                                     System.out.println("Jumlah Saldo: " + saldo.getJumlahSaldo());
                                     System.out.print("Apakah anda mau top up saldo? ");
                                     String mau = in.next();
