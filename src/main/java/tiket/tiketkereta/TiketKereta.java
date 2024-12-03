@@ -54,12 +54,24 @@ public class TiketKereta {
                                     Utility.cekTiketPemesan(currentUser);
                                     break;
                                 case 3:
-                                    break;
-                                case 4:
                                     System.out.print("Input Kode Tiket: ");
                                     String kode = in.next();
                                     selectedTiket=Utility.findTiket(kode);
-                                    if (selectedTiket!=null&&selectedTiket.getPemesan()==currentUser) {
+                                    if (selectedTiket!=null&&selectedTiket.getPemesan()==currentUser&&selectedTiket.getStatus().equals("Booked")) {
+                                        System.out.print("Input tanggal keberangkatan baru: ");
+                                        String tgl = in.next();
+                                        selectedTiket.rescheduleTiket(tgl);
+                                        System.out.println("Tiket berhasil dibatalkan");
+                                        
+                                    } else {
+                                        System.out.println("Kode tiket tidak ditemukan");
+                                    }
+                                    break;
+                                case 4:
+                                    System.out.print("Input Kode Tiket: ");
+                                    kode = in.next();
+                                    selectedTiket=Utility.findTiket(kode);
+                                    if (selectedTiket!=null&&selectedTiket.getPemesan()==currentUser&&selectedTiket.getStatus().equals("Booked")) {
                                         selectedTiket.cancelTiket();
                                         System.out.println("Tiket berhasil dibatalkan");
                                         
