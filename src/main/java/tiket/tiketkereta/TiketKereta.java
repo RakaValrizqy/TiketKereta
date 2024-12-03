@@ -19,10 +19,11 @@ public class TiketKereta {
         Pemesan currentUser=null;
         int pilihLogin=0, pilihPetugas = 0, pilihPemesan = 0;
         String email,password;
+        Saldo saldo = new Saldo(0);
         boolean isAccessMainMenu = true;
         
         
-        while (currentUser==null && isAccessMainMenu){
+        while (isAccessMainMenu){
             System.out.println("-----------------------------MENU LOGIN---------------------------------");
             System.out.println("1. Login sebagai pemesan");
             System.out.println("2. Login sebagai petugas");
@@ -59,6 +60,22 @@ public class TiketKereta {
                                 case 5:
                                     break;
                                 case 6:
+                                    System.out.println("Jumlah Saldo: " + saldo.getJumlahSaldo());
+                                    System.out.print("Apakah anda mau top up saldo? ");
+                                    String mau = in.next();
+                                    if (mau.equals("iya")){
+                                        System.out.print("Masukkan nominal top up: ");
+                                        int jumlahTopup = in.nextInt();
+                                            if (jumlahTopup > 0) {
+                                                saldo.topUp(jumlahTopup);
+                                                System.out.println("Anda berhasil top up, saldo anda sekarang: "+saldo.getJumlahSaldo());
+                                            } else {
+                                                System.out.println("Jumlah topup tidak boleh kurang dari 0.");
+                                            }
+                                        
+                                    } else if (mau.equals("tidak")){
+                                        break;
+                                    }
                                     break;
                                 case 7:
                                     System.out.println("Berhasil logout.");
