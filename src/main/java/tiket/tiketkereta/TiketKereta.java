@@ -59,11 +59,12 @@ public class TiketKereta {
                                     System.out.print("Input Kode Tiket: ");
                                     String kode = in.next();
                                     selectedTiket=Utility.findTiket(kode);
-                                    if (selectedTiket==null) {
-                                        System.out.println("Kode tiket tidak ditemukan");
-                                    } else {
+                                    if (selectedTiket!=null&&selectedTiket.getPemesan()==currentUser) {
                                         selectedTiket.cancelTiket();
                                         System.out.println("Tiket berhasil dibatalkan");
+                                        
+                                    } else {
+                                        System.out.println("Kode tiket tidak ditemukan");
                                     }
                                     break;
                                 case 5:
