@@ -36,4 +36,6 @@ public class Pengguna {
     public void printInfo() {
         System.out.println(email);
     }
+    
+    // apa kek
 }

@@ -23,7 +23,5 @@ public class Jadwal {
 
     public String getWaktuTiba() {
         return waktuTiba;
-    }
-    
-    
+    }   
 }

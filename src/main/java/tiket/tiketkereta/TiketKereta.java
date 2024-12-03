@@ -62,7 +62,7 @@ public class TiketKereta {
                                     break;
                                 case 7:
                                     System.out.println("Berhasil logout.");
-                                    // isAccess = false;
+                                    isAccess = false;
                                     break;
                                 default:
                                     System.out.println("Input tidak valid, silahkan input kembali");
