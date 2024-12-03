@@ -19,6 +19,12 @@ public class Pemesan extends Pengguna {
         this.saldo = new Saldo(saldo);
         this.listPenumpang = listPenumpang;
     }
+
+    public Saldo getSaldo() {
+        return saldo;
+    }
+    
+    
     
     // public void bookTicket();
     public void bookTiket(){
