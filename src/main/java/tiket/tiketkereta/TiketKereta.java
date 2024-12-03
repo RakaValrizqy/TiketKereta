@@ -20,6 +20,7 @@ public class TiketKereta {
         int pilihLogin=0, pilihPetugas = 0, pilihPemesan = 0;
         String email,password;
         boolean isAccessMainMenu = true;
+        Tiket selectedTiket=null;
         
         
         while (currentUser==null && isAccessMainMenu){
@@ -55,6 +56,15 @@ public class TiketKereta {
                                 case 3:
                                     break;
                                 case 4:
+                                    System.out.print("Input Kode Tiket: ");
+                                    String kode = in.next();
+                                    selectedTiket=Utility.findTiket(kode);
+                                    if (selectedTiket==null) {
+                                        System.out.println("Kode tiket tidak ditemukan");
+                                    } else {
+                                        selectedTiket.cancelTiket();
+                                        System.out.println("Tiket berhasil dibatalkan");
+                                    }
                                     break;
                                 case 5:
                                     break;

@@ -193,4 +193,13 @@ public class Utility {
         int pilih = in.nextInt();
         return pilih;
     }
+    
+    public static Tiket findTiket(String kode){
+        for (Tiket tiket:listTiket) {
+            if(tiket.getKodeTiket().equalsIgnoreCase(kode)){
+                return tiket;
+            }
+        }
+        return null;
+    }
 }
