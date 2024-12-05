@@ -8,7 +8,7 @@ package tiket.tiketkereta;
  *
  * @author Lenovo
  */
-public class TipeKelas {
+public class TipeKelas implements Pajak {
     private String namaTipe;
     private int harga;
     private KursiPenumpang[] listKursi;
@@ -98,6 +98,11 @@ public class TipeKelas {
     
     public KursiPenumpang getKursi(int index){
         return listKursi[index];
+    }
+    
+    @Override
+    public double hitungPajak() {
+        return harga*Pajak.tax;
     }
     
 }

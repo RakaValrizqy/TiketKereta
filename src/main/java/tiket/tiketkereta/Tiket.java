@@ -91,6 +91,14 @@ public class Tiket {
         if (railfood != null) {
             System.out.println("Railfood\t\t: " + railfood.getNama());
             System.out.println("Petugas\t\t\t: " + petugas.getNama_petugas());
+            System.out.println("Harga Tiket      : Rp "+tipe.getHarga());
+            System.out.println("Harga Railfood   : Rp "+railfood.getHarga());
+            System.out.println("Pajak            : Rp "+(railfood.hitungPajak()+tipe.hitungPajak()));
+            System.out.println("Total            : Rp "+(tipe.getHarga()+railfood.getHarga()+railfood.hitungPajak()+tipe.hitungPajak()));
+        } else {
+            System.out.println("Harga Tiket      : Rp "+tipe.getHarga());
+            System.out.println("Pajak            : Rp "+(tipe.hitungPajak()));
+            System.out.println("Total            : Rp "+(tipe.getHarga()+tipe.hitungPajak()));
         }
     }
 }

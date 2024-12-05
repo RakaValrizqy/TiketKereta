@@ -8,7 +8,7 @@ package tiket.tiketkereta;
  *
  * @author RVA
  */
-public class Railfood {
+public class Railfood implements Pajak {
     private String nama;
     private int harga;
 
@@ -23,5 +23,10 @@ public class Railfood {
 
     public int getHarga() {
         return harga;
+    }
+
+    @Override
+    public double hitungPajak() {
+        return harga*Pajak.tax;
     }
 }

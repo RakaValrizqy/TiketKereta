@@ -96,15 +96,17 @@ public class Pemesan extends Pengguna {
             }
             
             if (selectedRailfood==null) {
-                System.out.println("Harga Tiket: Rp "+selectedTipe.getHarga());
-                System.out.println("Total tagihan: Rp"+selectedTipe.getHarga());
-                saldo.bayar(selectedTipe.getHarga());
+                System.out.println("Harga Tiket      : Rp "+selectedTipe.getHarga());
+                System.out.println("Pajak            : Rp "+(selectedTipe.hitungPajak()));
+                System.out.println("Total Tagihan    : Rp "+(selectedTipe.getHarga()+selectedTipe.hitungPajak()));
+                saldo.bayar((int) (selectedTipe.getHarga()+selectedTipe.hitungPajak()));
                 Utility.listTiket.add(new Tiket(selectedPenumpang,this,tanggal,selectedKereta,selectedTipe));
             } else {
-                System.out.println("Harga Tiket: Rp "+selectedTipe.getHarga());
-                System.out.println("Harga "+selectedRailfood.getNama()+": Rp "+selectedRailfood.getHarga());
-                System.out.println("Total tagihan: Rp "+selectedTipe.getHarga());
-                saldo.bayar(selectedRailfood.getHarga()+selectedTipe.getHarga());
+                System.out.println("Harga Tiket      : Rp "+selectedTipe.getHarga());
+                System.out.println("Harga Railfood   : Rp "+selectedRailfood.getHarga());
+                System.out.println("Pajak            : Rp "+(selectedRailfood.hitungPajak()+selectedTipe.hitungPajak()));
+                System.out.println("Total Tagihan    : Rp "+(selectedTipe.getHarga()+selectedRailfood.getHarga()+selectedRailfood.hitungPajak()+selectedTipe.hitungPajak()));
+                saldo.bayar((int) (selectedTipe.getHarga()+selectedRailfood.getHarga()+selectedRailfood.hitungPajak()+selectedTipe.hitungPajak()));
                 Utility.listTiket.add(new Tiket(selectedPenumpang,this,tanggal,selectedKereta,selectedTipe,selectedRailfood));
             }
         }
