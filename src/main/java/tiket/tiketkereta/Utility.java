@@ -58,14 +58,13 @@ public class Utility {
         new Petugas("pet2@p.p","123","Vi","Pramugari"),
     };
     
-    public static ArrayList<Tiket> listTiket = new ArrayList<>();
-    
-    static {
-        listTiket.add(new Tiket(((Pemesan) listUser[1]).getPenumpang(0), ((Pemesan) listUser[1]), "24/11/2024", listKereta[2], listKereta[2].getTipeKelas(2)));
-        listTiket.add(new Tiket(((Pemesan) listUser[1]).getPenumpang(1), ((Pemesan) listUser[1]), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas(1), listRailfood[0]));
-        listTiket.add(new Tiket(((Pemesan) listUser[0]).getPenumpang(1), ((Pemesan) listUser[0]), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas(1), listRailfood[1]));
-        listTiket.add(new Tiket(((Pemesan) listUser[2]).getPenumpang(0), ((Pemesan) listUser[2]), "1/12/2024", listKereta[0], listKereta[0].getTipeKelas(0), listRailfood[0]));
-    } 
+ 
+    public static void initializeTiket(){
+        ((Pemesan)listUser[1]).initializeTiket(((Pemesan)listUser[1]).getPenumpang(0), "24/11/2024", listKereta[2], listKereta[2].getTipeKelas(2));
+        ((Pemesan)listUser[1]).initializeTiket(((Pemesan)listUser[1]).getPenumpang(1), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas(1), listRailfood[0]);
+        ((Pemesan)listUser[0]).initializeTiket(((Pemesan)listUser[0]).getPenumpang(1), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas(1), listRailfood[1]);
+        ((Pemesan)listUser[2]).initializeTiket(((Pemesan)listUser[2]).getPenumpang(0), "1/12/2024", listKereta[0], listKereta[0].getTipeKelas(0), listRailfood[0]);
+    }
     
     
     public static String generateKode(){

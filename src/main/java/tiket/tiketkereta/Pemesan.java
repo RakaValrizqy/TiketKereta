@@ -4,6 +4,7 @@
  */
 package tiket.tiketkereta;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,6 +14,7 @@ import java.util.Scanner;
 public class Pemesan extends Pengguna {
     private Saldo saldo;
     private Penumpang[] listPenumpang;
+    private ArrayList<Tiket> listTiket;
 
     public Pemesan(String email, String password, int saldo, Penumpang[] listPenumpang) {
         super(email, password);
@@ -100,17 +102,25 @@ public class Pemesan extends Pengguna {
                 System.out.println("Pajak            : Rp "+(selectedTipe.hitungPajak()));
                 System.out.println("Total Tagihan    : Rp "+(selectedTipe.getHarga()+selectedTipe.hitungPajak()));
                 saldo.bayar((int) (selectedTipe.getHarga()+selectedTipe.hitungPajak()));
-                Utility.listTiket.add(new Tiket(selectedPenumpang,this,tanggal,selectedKereta,selectedTipe));
+                listTiket.add(new Tiket(selectedPenumpang,tanggal,selectedKereta,selectedTipe));
             } else {
                 System.out.println("Harga Tiket      : Rp "+selectedTipe.getHarga());
                 System.out.println("Harga Railfood   : Rp "+selectedRailfood.getHarga());
                 System.out.println("Pajak            : Rp "+(selectedRailfood.hitungPajak()+selectedTipe.hitungPajak()));
                 System.out.println("Total Tagihan    : Rp "+(selectedTipe.getHarga()+selectedRailfood.getHarga()+selectedRailfood.hitungPajak()+selectedTipe.hitungPajak()));
                 saldo.bayar((int) (selectedTipe.getHarga()+selectedRailfood.getHarga()+selectedRailfood.hitungPajak()+selectedTipe.hitungPajak()));
-                Utility.listTiket.add(new Tiket(selectedPenumpang,this,tanggal,selectedKereta,selectedTipe,selectedRailfood));
+                listTiket.add(new Tiket(selectedPenumpang,tanggal,selectedKereta,selectedTipe,selectedRailfood));
             }
         }
         
+    }
+    
+    public void initializeTiket(Penumpang penumpang,String tanggal,Kereta kereta,TipeKelas tipe){
+        listTiket.add(new Tiket(penumpang,tanggal,kereta,tipe));
+    }
+    
+    public void initializeTiket(Penumpang penumpang,String tanggal,Kereta kereta,TipeKelas tipe,Railfood railfood){
+        listTiket.add(new Tiket(penumpang,tanggal,kereta,tipe,railfood));
     }
     
     // public void orderRailfood();

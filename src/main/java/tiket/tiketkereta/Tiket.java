@@ -13,7 +13,6 @@ import java.util.Random;
 public class Tiket {
     private String kodeTiket;
     private Penumpang penumpang;
-    private Pemesan pemesan;
     private String tanggal;
     private Kereta kereta;
     private TipeKelas tipe;
@@ -24,10 +23,9 @@ public class Tiket {
     private Petugas petugas;
     private String status;
 
-    public Tiket(Penumpang penumpang, Pemesan pemesan, String tanggal, Kereta kereta, TipeKelas tipe) {
+    public Tiket(Penumpang penumpang, String tanggal, Kereta kereta, TipeKelas tipe) {
         this.kodeTiket = Utility.generateKode();
         this.penumpang = penumpang;
-        this.pemesan = pemesan;
         this.tanggal = tanggal;
         this.kereta = kereta;
         this.tipe = tipe;
@@ -35,10 +33,9 @@ public class Tiket {
         this.status = "Booked";
     }
 
-    public Tiket(Penumpang penumpang, Pemesan pemesan, String tanggal, Kereta kereta, TipeKelas tipe, Railfood railfood) {
+    public Tiket(Penumpang penumpang, String tanggal, Kereta kereta, TipeKelas tipe, Railfood railfood) {
         this.kodeTiket = Utility.generateKode();
         this.penumpang = penumpang;
-        this.pemesan = pemesan;
         this.tanggal = tanggal;
         this.kereta = kereta;
         this.tipe = tipe;
@@ -68,9 +65,6 @@ public class Tiket {
         return kodeTiket;
     }
 
-    public Pemesan getPemesan() {
-        return pemesan;
-    }
 
     public Petugas getPetugas() {
         return petugas;
@@ -83,7 +77,6 @@ public class Tiket {
     
     public void printInfo(){
         System.out.println("Kode Tiket\t\t: " + kodeTiket);
-        System.out.println("Pemesan\t\t\t: " + pemesan.getEmail());
         System.out.println("Penumpang\t\t: " + penumpang.getName()+", "+penumpang.getNIK());
         System.out.println("Tanggal keberangkatan\t: " + tanggal);
         System.out.println("Kereta\t\t\t: " + kereta.getNama());
