@@ -86,9 +86,9 @@ public class TiketKereta {
                                 case 6:
                                     saldo = currentUser.getSaldo();
                                     System.out.println("Jumlah Saldo: " + saldo.getJumlahSaldo());
-                                    System.out.print("Apakah anda mau top up saldo? (Y/N): ");
+                                    System.out.print("Apakah anda mau top up saldo? (y/n): ");
                                     String mau = in.next();
-                                    if (mau.equals("Y")){
+                                    if (mau.equals("y")){
                                         System.out.print("Masukkan nominal top up: ");
                                         int jumlahTopup = in.nextInt();
                                             if (jumlahTopup > 0) {
@@ -98,7 +98,7 @@ public class TiketKereta {
                                                 System.out.println("Jumlah topup tidak boleh kurang dari 0.\n");
                                             }
                                         
-                                    } else if (mau.equals("N")){
+                                    } else if (mau.equals("n")){
                                         System.out.println("Terimakasih.\n");
                                         break;
                                     }
