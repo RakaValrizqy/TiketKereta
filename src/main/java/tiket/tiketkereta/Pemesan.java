@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Pemesan extends Pengguna {
     private Saldo saldo;
     private Penumpang[] listPenumpang;
-    private ArrayList<Tiket> listTiket;
+    private ArrayList<Tiket> listTiket = new ArrayList<>();
 
     public Pemesan(String email, String password, int saldo, Penumpang[] listPenumpang) {
         super(email, password);
@@ -125,6 +125,26 @@ public class Pemesan extends Pengguna {
     
     // public void orderRailfood();
 
+    public void cekTiketPemesan(){
+        // pemesan mengecek info penumpang dan tiket apa saja yang telah dipesan
+        System.out.println("Tiket yang telah dipesan oleh: " + getEmail());
+        for (Tiket tiket : listTiket) {
+            if (tiket.getStatus().equalsIgnoreCase("Booked")) {
+                tiket.printInfo();
+                Utility.separator();
+            }
+        }
+    }
+    
+    public Tiket findTiket(String kode){
+        for (Tiket tiket:listTiket) {
+            if(tiket.getKodeTiket().equalsIgnoreCase(kode)){
+                return tiket;
+            }
+        }
+        return null;
+    }
+    
     public void cekSaldo() {
         System.out.println("Sisa saldo " + super.getEmail() + ": Rp " + saldo.getJumlahSaldo());
     }

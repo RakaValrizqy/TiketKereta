@@ -22,7 +22,7 @@ public class TiketKereta {
         Saldo saldo;
         boolean isAccessMainMenu = true;
         Tiket selectedTiket=null;
-        
+        Utility.initializeTiket();
         
         while (isAccessMainMenu){
             System.out.println("-----------------------------MENU LOGIN---------------------------------");
@@ -52,12 +52,12 @@ public class TiketKereta {
                                     currentUser.bookTiket();
                                     break;
                                 case 2:
-                                    Utility.cekTiketPemesan(currentUser);
+                                    currentUser.cekTiketPemesan();
                                     break;
                                 case 3:
                                     System.out.print("Input Kode Tiket: ");
                                     String kode = in.next();
-                                    selectedTiket=Utility.findTiket(kode);
+                                    selectedTiket=currentUser.findTiket(kode);
                                     if (selectedTiket!=null&&selectedTiket.getStatus().equals("Booked")) {
                                         System.out.print("Input tanggal keberangkatan baru: ");
                                         String tgl = in.next();
@@ -70,7 +70,7 @@ public class TiketKereta {
                                 case 4:
                                     System.out.print("Input Kode Tiket: ");
                                     kode = in.next();
-                                    selectedTiket=Utility.findTiket(kode);
+                                    selectedTiket=currentUser.findTiket(kode);
                                     if (selectedTiket!=null&&selectedTiket.getStatus().equals("Booked")) {
                                         selectedTiket.cancelTiket();
                                         System.out.println("Tiket berhasil dibatalkan");

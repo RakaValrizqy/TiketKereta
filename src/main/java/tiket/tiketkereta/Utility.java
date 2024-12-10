@@ -91,25 +91,14 @@ public class Utility {
         return listKursi[rnd];
     }
 
-    public static void cekTiketPemesan(Pemesan pemesan){
-        // pemesan mengecek info penumpang dan tiket apa saja yang telah dipesan
-        System.out.println("Tiket yang telah dipesan oleh: " + pemesan.getEmail());
-            for (Tiket tiket : listTiket) {
-                if (tiket.getPemesan() == pemesan && tiket.getStatus().equals("Booked")) {
-                    tiket.printInfo();
-                    separator();
-                }
-        }
-    }
-
     public static void cekTiketPetugas(Petugas petugas) {
-        System.out.println("Tiket yang ditugaskan untuk petugas ini adalah: " + petugas.getNama_petugas());
-        for (Tiket tiket : listTiket) {
-            if (tiket.getPetugas() == petugas && tiket.getStatus().equals("Booked")) {
-                tiket.printInfo();
-                separator();
-            }
-        }
+//        System.out.println("Tiket yang ditugaskan untuk petugas ini adalah: " + petugas.getNama_petugas());
+//        for (Tiket tiket : listTiket) {
+//            if (tiket.getPetugas() == petugas && tiket.getStatus().equals("Booked")) {
+//                tiket.printInfo();
+//                separator();
+//            }
+//        }
     }
     
     public static void separator(){
@@ -191,14 +180,5 @@ public class Utility {
         System.out.print("\nPilih: ");
         int pilih = in.nextInt();
         return pilih;
-    }
-    
-    public static Tiket findTiket(String kode){
-        for (Tiket tiket:listTiket) {
-            if(tiket.getKodeTiket().equalsIgnoreCase(kode)){
-                return tiket;
-            }
-        }
-        return null;
     }
 }
