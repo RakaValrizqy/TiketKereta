@@ -135,7 +135,7 @@ public class TiketKereta {
                                 case 1:
                                     System.out.println();
                                     Utility.separator();
-                                    Utility.cekTiketPetugas(petugas);
+                                    petugas.cekTiketPetugas();
                                     break;
                                 case 2:
                                     System.out.println("Berhasil log-out");

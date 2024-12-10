@@ -25,6 +25,10 @@ public class Pemesan extends Pengguna {
     public Saldo getSaldo() {
         return saldo;
     }
+
+    public ArrayList<Tiket> getListTiket() {
+        return listTiket;
+    }
     
     
     

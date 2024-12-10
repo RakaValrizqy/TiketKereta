@@ -8,6 +8,7 @@ package tiket.tiketkereta;
  *
  * @author bagas
  */
+import java.util.ArrayList;
 public class Petugas extends Pengguna {
     private String nama_petugas;
     private String posisi;
@@ -34,7 +35,20 @@ public class Petugas extends Pengguna {
         return nama_petugas;
     }
     
-    
+    public void cekTiketPetugas() {
+        System.out.println("Tiket yang ditugaskan untuk petugas ini adalah: " + getNama_petugas());
+        // Pemesan[] listUser = Utility.listUser;
+        for (int i = 0; i < Utility.listUser.length; i++) {
+            Pemesan pemesan = ((Pemesan)Utility.listUser[i]);
+            ArrayList<Tiket> listTiket = pemesan.getListTiket();
+            for (Tiket tiket : listTiket) {
+                if (tiket.getPetugas() == this && tiket.getStatus().equals("Booked")) {
+                    tiket.printInfo();
+                    Utility.separator();
+                }
+            }
+        }   
+    }
 
     @Override
     public String toString() {

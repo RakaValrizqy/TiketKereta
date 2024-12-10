@@ -91,15 +91,7 @@ public class Utility {
         return listKursi[rnd];
     }
 
-    public static void cekTiketPetugas(Petugas petugas) {
-//        System.out.println("Tiket yang ditugaskan untuk petugas ini adalah: " + petugas.getNama_petugas());
-//        for (Tiket tiket : listTiket) {
-//            if (tiket.getPetugas() == petugas && tiket.getStatus().equals("Booked")) {
-//                tiket.printInfo();
-//                separator();
-//            }
-//        }
-    }
+    
     
     public static void separator(){
         System.out.println("------------------------------------------------------------------------");
