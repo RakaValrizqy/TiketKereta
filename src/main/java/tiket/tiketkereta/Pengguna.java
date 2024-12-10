@@ -8,7 +8,7 @@ package tiket.tiketkereta;
  *
  * @author LENOVO
  */
-public class Pengguna {
+public abstract class Pengguna {
     private String email;
     private String password;
 
@@ -33,9 +33,7 @@ public class Pengguna {
         return null;
     }
     
-    public void printInfo() {
-        System.out.println(email);
-    }
+    public abstract void printInfo();
     
     // apa kek
 }

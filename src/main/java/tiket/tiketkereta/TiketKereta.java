@@ -43,7 +43,8 @@ public class TiketKereta {
                         System.out.println("Akun tidak ditemukan");
                     } else {
                         Utility.separator();
-                        System.out.println("Selamat datang "+currentUser.getEmail());
+                        System.out.print("Selamat datang ");
+                        currentUser.printInfo();
                         System.out.println();
                         boolean isAccess = true;
                         while (isAccess){
@@ -137,7 +138,8 @@ public class TiketKereta {
                             if (foundUser instanceof Petugas){
                                 petugas = (Petugas) Utility.findUser(email, password);
                                 Utility.separator();
-                                System.out.println("Selamat datang " + petugas.getNama_petugas() + "!");
+                                System.out.print("Selamat datang ");
+                                petugas.printInfo();
                                 System.out.println();
                                 boolean isAccess = true;
                                 while (isAccess) {

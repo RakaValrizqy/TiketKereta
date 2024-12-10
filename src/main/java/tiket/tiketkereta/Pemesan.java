@@ -161,8 +161,15 @@ public class Pemesan extends Pengguna {
             i++;
         }
     }
-    
+   
     public Penumpang getPenumpang(int index){
         return listPenumpang[index];
     }
+
+    @Override
+    public void printInfo() {
+        System.out.println(getEmail());
+    }
+    
+    
 }

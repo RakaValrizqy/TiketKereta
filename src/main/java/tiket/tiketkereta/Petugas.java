@@ -60,6 +60,6 @@ public class Petugas extends Pengguna {
     
     @Override
     public void printInfo() {
-        System.out.println(toString());
+        System.out.println(posisi + " atas nama " + nama_petugas);
     }
 }
