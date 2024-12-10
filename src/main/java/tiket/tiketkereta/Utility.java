@@ -53,13 +53,6 @@ public class Utility {
         new Railfood("Pop Mie",10000),
         new Railfood("Air Mineral",4000)
     };
-    
-    
-    public static Petugas[] listPetugas = {
-        new Petugas("pet1@p.p","123","Prasetyo","Pramugara"),
-        new Petugas("pet2@p.p","123","Vi","Pramugari"),
-    };
-    
  
     public static void initializeTiket(){
         ((Pemesan)listUser[1]).initializeTiket(((Pemesan)listUser[1]).getPenumpang(0), "24/11/2024", listKereta[2], listKereta[2].getTipeKelas(2));
@@ -81,8 +74,15 @@ public class Utility {
     }
     
     public static Petugas assignPetugas(){
-        int rnd = new Random().nextInt(listPetugas.length);
-        return listPetugas[rnd];
+        ArrayList<Integer> idxPetugas = new ArrayList<>();
+        for (int i=0; i<listUser.length; i++){
+            if(listUser[i] instanceof Petugas){
+                idxPetugas.add(i);
+            }
+        }
+        int rnd = new Random().nextInt(idxPetugas.size());
+        int idx = idxPetugas.get(rnd);
+        return (Petugas) listUser[idx];
     }
     
     public static KursiPenumpang assignKursiPenumpang(KursiPenumpang[] listKursi){

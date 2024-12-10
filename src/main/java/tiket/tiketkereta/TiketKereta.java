@@ -121,38 +121,45 @@ public class TiketKereta {
                     System.out.print("Masukkan email: ");
                     email = in.next();
                     System.out.print("Masukkan password: ");
-                    password = in.next();
-                    foundUser = Utility.findUser(email, password);
                     
-                    if (foundUser == null) {
-                        System.out.println("Akun tidak ditemukan");
-                    } else {
-                        if (foundUser instanceof Petugas){
-                            petugas = (Petugas) Utility.findUser(email, password);
-                            Utility.separator();
-                            System.out.println("Selamat datang " + petugas.getNama_petugas() + "!");
-                            System.out.println();
-                            boolean isAccess = true;
-                            while (isAccess) {
-                                pilihPetugas = Utility.menuPetugas();
-                                switch(pilihPetugas) {
-                                    case 1:
-                                        System.out.println();
-                                        Utility.separator();
-                                        petugas.cekTiketPetugas();
-                                        break;
-                                    case 2:
-                                        System.out.println("Berhasil log-out");
-                                        isAccess = false;
-                                        break;
-                                    default:
-                                        System.out.println("Input tidak valid, silahkan input kembali");
-                                        break;
+                    password = in.next();
+                    
+                    try {
+                        foundUser = Utility.findUser(email, password);
+                        if (foundUser == null){
+                            throw new Exception();
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Akun tidak ditemukan atau password salah");
+                    }
+                    if (foundUser != null) {
+//                        System.out.println("Akun tidak ditemukan");
+                            if (foundUser instanceof Petugas){
+                                petugas = (Petugas) Utility.findUser(email, password);
+                                Utility.separator();
+                                System.out.println("Selamat datang " + petugas.getNama_petugas() + "!");
+                                System.out.println();
+                                boolean isAccess = true;
+                                while (isAccess) {
+                                    pilihPetugas = Utility.menuPetugas();
+                                    switch(pilihPetugas) {
+                                        case 1:
+                                            System.out.println();
+                                            Utility.separator();
+                                            petugas.cekTiketPetugas();
+                                            break;
+                                        case 2:
+                                            System.out.println("Berhasil log-out");
+                                            isAccess = false;
+                                            break;
+                                        default:
+                                            System.out.println("Input tidak valid, silahkan input kembali");
+                                            break;
+                                    }
                                 }
-                            }
-                        } else {
-                            System.out.println("Maaf, akun pemesan tidak dapat login sebagai petugas");
-                        }  
+                            } else {
+                                System.out.println("Maaf, akun pemesan tidak dapat login sebagai petugas");
+                            }  
                     }
                     break;
                 case 3:
