@@ -15,6 +15,7 @@ public class TiketKereta {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         // logIn() Pengguna
+        Pengguna foundUser = null;
         Petugas petugas = null;
         Pemesan currentUser=null;
         int pilihLogin=0, pilihPetugas = 0, pilihPemesan = 0;
@@ -121,31 +122,37 @@ public class TiketKereta {
                     email = in.next();
                     System.out.print("Masukkan password: ");
                     password = in.next();
-                    petugas = (Petugas) Utility.findPetugas(email, password);
-                    if (petugas == null) {
+                    foundUser = Utility.findUser(email, password);
+                    
+                    if (foundUser == null) {
                         System.out.println("Akun tidak ditemukan");
                     } else {
-                        Utility.separator();
-                        System.out.println("Selamat datang " + petugas.getNama_petugas() + "!");
-                        System.out.println();
-                        boolean isAccess = true;
-                        while (isAccess) {
-                            pilihPetugas = Utility.menuPetugas();
-                            switch(pilihPetugas) {
-                                case 1:
-                                    System.out.println();
-                                    Utility.separator();
-                                    petugas.cekTiketPetugas();
-                                    break;
-                                case 2:
-                                    System.out.println("Berhasil log-out");
-                                    isAccess = false;
-                                    break;
-                                default:
-                                    System.out.println("Input tidak valid, silahkan input kembali");
-                                    break;
+                        if (foundUser instanceof Petugas){
+                            petugas = (Petugas) Utility.findUser(email, password);
+                            Utility.separator();
+                            System.out.println("Selamat datang " + petugas.getNama_petugas() + "!");
+                            System.out.println();
+                            boolean isAccess = true;
+                            while (isAccess) {
+                                pilihPetugas = Utility.menuPetugas();
+                                switch(pilihPetugas) {
+                                    case 1:
+                                        System.out.println();
+                                        Utility.separator();
+                                        petugas.cekTiketPetugas();
+                                        break;
+                                    case 2:
+                                        System.out.println("Berhasil log-out");
+                                        isAccess = false;
+                                        break;
+                                    default:
+                                        System.out.println("Input tidak valid, silahkan input kembali");
+                                        break;
+                                }
                             }
-                        }
+                        } else {
+                            System.out.println("Maaf, akun pemesan tidak dapat login sebagai petugas");
+                        }  
                     }
                     break;
                 case 3:

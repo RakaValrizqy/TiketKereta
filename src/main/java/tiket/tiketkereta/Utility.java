@@ -45,6 +45,8 @@ public class Utility {
                 (new Penumpang("Raka", "44444444")),
                 (new Penumpang("Elzio", "55555555")),
             })),
+        (new Petugas("pet1@p.p","123","Prasetyo","Pramugara")),
+        (new Petugas("pet2@p.p","123","Vi","Pramugari"))
       };
     
     public static Railfood[] listRailfood = {
@@ -136,12 +138,12 @@ public class Utility {
         return null;
     }
     
-    public static Petugas findPetugas(String email, String password) {
+    public static Pengguna findUser(String email, String password) {
         int i = 0;
-        Petugas found = null;
-        while (found == null && i < listPetugas.length) {
-            if (listPetugas[i].logIn(email, password)) {
-                found = listPetugas[i];
+        Pengguna found = null;
+        while (found == null && i < listUser.length) {
+            if (listUser[i].logIn(email, password)) {  
+                found = listUser[i];
                 return found;
             }
             i++;

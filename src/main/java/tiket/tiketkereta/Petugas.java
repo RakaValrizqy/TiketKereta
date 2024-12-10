@@ -39,12 +39,15 @@ public class Petugas extends Pengguna {
         System.out.println("Tiket yang ditugaskan untuk petugas ini adalah: " + getNama_petugas());
         // Pemesan[] listUser = Utility.listUser;
         for (int i = 0; i < Utility.listUser.length; i++) {
-            Pemesan pemesan = ((Pemesan)Utility.listUser[i]);
-            ArrayList<Tiket> listTiket = pemesan.getListTiket();
-            for (Tiket tiket : listTiket) {
-                if (tiket.getPetugas() == this && tiket.getStatus().equals("Booked")) {
-                    tiket.printInfo();
-                    Utility.separator();
+            if (Utility.listUser[i] instanceof Pemesan) {
+                Pemesan pemesan = ((Pemesan)Utility.listUser[i]);
+                
+                ArrayList<Tiket> listTiket = pemesan.getListTiket();
+                for (Tiket tiket : listTiket) {
+                    if (tiket.getPetugas() == this && tiket.getStatus().equals("Booked")) {
+                        tiket.printInfo();
+                        Utility.separator();
+                    }
                 }
             }
         }   
