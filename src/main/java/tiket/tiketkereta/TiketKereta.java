@@ -107,6 +107,7 @@ public class TiketKereta {
                                     break;
                                 case 7:
                                     System.out.println("Berhasil logout.");
+                                    currentUser = (Pemesan) currentUser.logOut();
                                     isAccess = false;
                                     break;
                                 default:
@@ -167,6 +168,7 @@ public class TiketKereta {
                 case 3:
                     System.out.println("Terimakasih dan Sampai Jumpa");
                     isAccessMainMenu = false;
+                    petugas = (Petugas) petugas.logOut();
                     break;
                 default:
                     System.out.println("Input tidak valid, silahkan input kembali");

@@ -102,9 +102,6 @@ public class Pemesan extends Pengguna {
                 
             }
             
-            System.out.println(selectedTipe);
-            System.out.println(selectedKereta.getTipeKelas(keyTipe));
-            
             if (selectedRailfood==null) {
                 System.out.println("Harga Tiket      : Rp "+selectedTipe.getHarga());
                 System.out.println("Pajak            : Rp "+(selectedTipe.hitungPajak()));
