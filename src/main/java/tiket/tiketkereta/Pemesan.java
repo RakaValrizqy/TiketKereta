@@ -40,7 +40,8 @@ public class Pemesan extends Pengguna {
         Kereta selectedKereta;
         TipeKelas selectedTipe;
         Railfood selectedRailfood = null;
-        int idxPenumpang, idxTipe;
+        int idxPenumpang;
+        String keyTipe;
         
         Utility.separator();
         System.out.println("----------------------------Pesan Tiket---------------------------------");
@@ -69,13 +70,13 @@ public class Pemesan extends Pengguna {
             selectedKereta = Utility.findKereta(namaKereta, asal, tujuan);
             System.out.println(selectedKereta.getNama());
             selectedKereta.showAllTipe();
-            System.out.print("Pilih nomor tipe: ");
-            idxTipe = in.nextInt();
-            while (idxTipe < 1 || idxTipe>3){
-                System.out.print("Pilihan tidak valid!\nPilih nomor tipe: ");
-                idxTipe = in.nextInt();
+            System.out.print("Ketik nama tipe: ");
+            keyTipe = in.next();
+            while (!"Ekonomi".equals(keyTipe) && !"Bisnis".equals(keyTipe) && !"Eksekutif".equals(keyTipe)){
+                System.out.print("Pilihan tidak valid!\nKetik nama tipe: ");
+                keyTipe = in.next();
             }
-            selectedTipe = selectedKereta.getTipeKelas(idxTipe-1);
+            selectedTipe = selectedKereta.getTipeKelas(keyTipe);
             //System.out.println(selectedTipe.getNamaTipe());
             
             showAllPenumpang();
@@ -100,6 +101,9 @@ public class Pemesan extends Pengguna {
                 selectedRailfood = Utility.listRailfood[idxRailfood-1];
                 
             }
+            
+            System.out.println(selectedTipe);
+            System.out.println(selectedKereta.getTipeKelas(keyTipe));
             
             if (selectedRailfood==null) {
                 System.out.println("Harga Tiket      : Rp "+selectedTipe.getHarga());

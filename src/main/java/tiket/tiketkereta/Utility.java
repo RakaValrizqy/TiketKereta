@@ -55,10 +55,10 @@ public class Utility {
     };
  
     public static void initializeTiket(){
-        ((Pemesan)listUser[1]).initializeTiket(((Pemesan)listUser[1]).getPenumpang(0), "24/11/2024", listKereta[2], listKereta[2].getTipeKelas(2));
-        ((Pemesan)listUser[1]).initializeTiket(((Pemesan)listUser[1]).getPenumpang(1), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas(1), listRailfood[0]);
-        ((Pemesan)listUser[0]).initializeTiket(((Pemesan)listUser[0]).getPenumpang(1), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas(1), listRailfood[1]);
-        ((Pemesan)listUser[2]).initializeTiket(((Pemesan)listUser[2]).getPenumpang(0), "1/12/2024", listKereta[0], listKereta[0].getTipeKelas(0), listRailfood[0]);
+        ((Pemesan)listUser[1]).initializeTiket(((Pemesan)listUser[1]).getPenumpang(0), "24/11/2024", listKereta[2], listKereta[2].getTipeKelas("Eksekutif"));
+        ((Pemesan)listUser[1]).initializeTiket(((Pemesan)listUser[1]).getPenumpang(1), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas("Bisnis"), listRailfood[0]);
+        ((Pemesan)listUser[0]).initializeTiket(((Pemesan)listUser[0]).getPenumpang(1), "1/12/2024", listKereta[1], listKereta[1].getTipeKelas("Bisnis"), listRailfood[1]);
+        ((Pemesan)listUser[2]).initializeTiket(((Pemesan)listUser[2]).getPenumpang(0), "1/12/2024", listKereta[0], listKereta[0].getTipeKelas("Ekonomi"), listRailfood[0]);
     }
     
     

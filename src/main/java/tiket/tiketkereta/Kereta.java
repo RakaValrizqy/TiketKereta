@@ -4,6 +4,8 @@
  */
 package tiket.tiketkereta;
 
+import java.util.HashMap;
+
 /**
  *
  * @author RVA
@@ -13,22 +15,20 @@ public class Kereta {
     private Stasiun stasiunB;
     private Stasiun stasiunT;
     private Jadwal jadwal;
-    private TipeKelas[] tipe = new TipeKelas[3];
+    private HashMap<String,TipeKelas> tipe = new HashMap<>();
 
     public Kereta(String nama, int eko, int bis, int eks,Stasiun sB, Stasiun sT, Jadwal jadwal) {
         this.nama = nama;
-        this.tipe = new TipeKelas[] {
-            (new TipeKelas("Ekonomi",eko)),
-            (new TipeKelas("Bisnis",bis)),
-            (new TipeKelas("Eksekutif",eks))
-        };
+        tipe.put("Ekonomi", new TipeKelas("Ekonomi",eko));
+        tipe.put("Bisnis", new TipeKelas("Bisnis",bis));
+        tipe.put("Eksekutif", new TipeKelas("Eksekutif",eks));
         this.stasiunB = sB;
         this.stasiunT = sT;
         this.jadwal = jadwal;
     }
 
     public void show(){
-        System.out.println(nama+" Rp "+tipe[0].getHarga()+" - Rp "+tipe[2].getHarga());
+        System.out.println(nama+" Rp "+tipe.get("Ekonomi").getHarga()+" - Rp "+tipe.get("Eksekutif").getHarga());
         System.out.println(stasiunB.toString()+" -> "+stasiunT.toString());
         System.out.println(jadwal.getWaktuBerangkat()+"\t\t\t  "+jadwal.getWaktuTiba());
         System.out.println("");
@@ -42,16 +42,14 @@ public class Kereta {
         return nama;
     }
     
-    public TipeKelas getTipeKelas(int index){
-        return tipe[index];
+    public TipeKelas getTipeKelas(String key){
+        return tipe.get(key);
     }
     
     public void showAllTipe(){
-        int i=1;
-        for (TipeKelas type:tipe){
-            System.out.println(i+". Kelas "+type.getNamaTipe()+" Rp "+type.getHarga());
-            i++;
-        }
+        System.out.println(1+". Kelas "+tipe.get("Ekonomi").getNamaTipe()+" Rp "+tipe.get("Ekonomi").getHarga());
+        System.out.println(2+". Kelas "+tipe.get("Bisnis").getNamaTipe()+" Rp "+tipe.get("Bisnis").getHarga());
+        System.out.println(3+". Kelas "+tipe.get("Eksekutif").getNamaTipe()+" Rp "+tipe.get("Eksekutif").getHarga());
     }
     
 }
