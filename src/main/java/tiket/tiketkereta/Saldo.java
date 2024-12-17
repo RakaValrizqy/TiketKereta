@@ -52,12 +52,8 @@ public class Saldo {
             System.out.println("================== Pembayaran berhasil ==================");
             System.out.printf("Pembayaran sebesar : Rp %d,00\n", jumlah);
             System.out.printf("Sisa saldo : Rp %d,00\n", getJumlahSaldo());
-            separator();
+            Utility.separator();
         }
-    }
-    
-    public void separator() {
-        System.out.println("=========================================================");
     }
     
     public void printInfo() {
