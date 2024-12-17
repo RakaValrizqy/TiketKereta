@@ -24,7 +24,7 @@ public class TiketKereta {
         boolean isAccessMainMenu = true;
         Tiket selectedTiket=null;
         Utility.initializeTiket();
-        
+           
         while (isAccessMainMenu){
             System.out.println("-----------------------------MENU LOGIN---------------------------------");
             System.out.println("1. Login sebagai pemesan");

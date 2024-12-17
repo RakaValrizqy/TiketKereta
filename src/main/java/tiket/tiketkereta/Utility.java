@@ -16,17 +16,31 @@ public class Utility {
     static Jadwal[] listJadwal = {
         (new Jadwal("18:00","06:00")),
         (new Jadwal("16:00","04:00")),
-        (new Jadwal("08:00","12:00"))
+        (new Jadwal("08:00","12:00")),
+        (new Jadwal("22:00","06:00")),
+        (new Jadwal("13:00","17:00")),
+        (new Jadwal("18:00","23:00")),
+        (new Jadwal("10:00","17:30")),
+        (new Jadwal("09:00","14:00"))
     };
     static Stasiun[] listStasiun = {
         (new Stasiun("Kiaracondong","Bandung")),
         (new Stasiun("Malang","Malang")),
         (new Stasiun("Jember","Jember")),
+        (new Stasiun("Balapan","Solo")),
+        (new Stasiun("Pasarsenen","Jakarta")),
     };
     static Kereta[] listKereta = {
         (new Kereta("Mutiara_Selatan",200000,300000,400000,listStasiun[1],listStasiun[0],listJadwal[0])),
         (new Kereta("Malabar",300000,400000,500000,listStasiun[1],listStasiun[0],listJadwal[1])),
-        (new Kereta("Tawang_Alun",40000,50000,60000,listStasiun[2],listStasiun[1],listJadwal[2]))
+        (new Kereta("Tawang_Alun",40000,50000,60000,listStasiun[2],listStasiun[1],listJadwal[2])),
+        (new Kereta("Lodaya",160000,210000,240000,listStasiun[0],listStasiun[3],listJadwal[3])),
+        (new Kereta("Turangga",620000,680000,720000,listStasiun[4],listStasiun[0],listJadwal[7])),
+        (new Kereta("Pasundan",80000,120000,160000,listStasiun[0],listStasiun[3],listJadwal[0])),
+        (new Kereta("Serayu",60000,80000,100000,listStasiun[0],listStasiun[4],listJadwal[5])),
+        (new Kereta("Pangandaran",150000,170000,190000,listStasiun[4],listStasiun[0],listJadwal[4])),
+        (new Kereta("Brawijaya",460000,485000,500000,listStasiun[1],listStasiun[3],listJadwal[5])),
+        (new Kereta("Matarmaja",170000,180000,190000,listStasiun[3],listStasiun[1],listJadwal[7]))
     };
     
     static Pengguna[] listUser = {
@@ -174,5 +188,5 @@ public class Utility {
         System.out.print("\nPilih: ");
         int pilih = in.nextInt();
         return pilih;
-    }
+    }   
 }
