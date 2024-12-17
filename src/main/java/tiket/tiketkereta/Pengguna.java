@@ -35,5 +35,4 @@ public abstract class Pengguna {
     
     public abstract void printInfo();
     
-    // apa kek
 }
