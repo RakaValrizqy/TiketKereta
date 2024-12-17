@@ -32,7 +32,7 @@ public class Saldo {
             boolean isAccess = false;
             System.out.println();
             while (!isAccess) {
-                separator();
+                Utility.separator();
                 System.out.println("Maaf saldo anda kurang, silahkan Top Up terlebih dahulu");
                 System.out.println();
                 System.out.printf("Saldo anda saat ini: Rp %d,00\n", getJumlahSaldo());
