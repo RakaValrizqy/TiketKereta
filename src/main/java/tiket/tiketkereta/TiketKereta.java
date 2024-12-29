@@ -35,88 +35,94 @@ public class TiketKereta {
                 pilihLogin = in.nextInt();
                 switch (pilihLogin) {
                     case 1:
-                        System.out.print("Masukkan email: ");
-                        email = in.next();
-                        System.out.print("Masukkan password: ");
-                        password = in.next();
-                        currentUser = (Pemesan) Utility.findPemesan(email, password);
-                        if (currentUser==null) {
-                            System.out.println("Akun tidak ditemukan");
-                        } else {
-                            Utility.separator();
-                            System.out.print("Selamat datang ");
-                            currentUser.printInfo();
-                            System.out.println();
-                            boolean isAccess = true;
-                            while (isAccess){
-                                pilihPemesan = Utility.menuPemesan();
-                                switch (pilihPemesan){
-                                    case 1:
-                                        currentUser.bookTiket();
-                                        break;
-                                    case 2:
-                                        currentUser.cekTiketPemesan();
-                                        break;
-                                    case 3:
-                                        System.out.print("Input Kode Tiket: ");
-                                        String kode = in.next();
-                                        selectedTiket=currentUser.findTiket(kode);
-                                        if (selectedTiket!=null&&selectedTiket.getStatus().equals("Booked")) {
-                                            System.out.print("Input tanggal keberangkatan baru: ");
-                                            String tgl = in.next();
-                                            selectedTiket.rescheduleTiket(tgl);
-                                            System.out.println("Tiket berhasil diubah jadwal");
-                                        } else {
-                                            System.out.println("Kode tiket tidak ditemukan");
-                                        }
-                                        break;
-                                    case 4:
-                                        System.out.print("Input Kode Tiket: ");
-                                        kode = in.next();
-                                        selectedTiket=currentUser.findTiket(kode);
-                                        if (selectedTiket!=null&&selectedTiket.getStatus().equals("Booked")) {
-                                            selectedTiket.cancelTiket();
-                                            System.out.println("Tiket berhasil dibatalkan");
-
-                                        } else {
-                                            System.out.println("Kode tiket tidak ditemukan");
-                                        }
-                                        break;
-                                    case 5:
-                                        System.out.println("Daftar penumpang: ");
-                                        currentUser.showAllPenumpang();
-                                        break;
-                                    case 6:
-                                        saldo = currentUser.getSaldo();
-                                        System.out.println("Jumlah Saldo: " + saldo.getJumlahSaldo());
-                                        System.out.print("Apakah anda mau top up saldo? (y/n): ");
-                                        String mau = in.next();
-                                        if (mau.equals("y")){
-                                            System.out.print("Masukkan nominal top up: ");
-                                            int jumlahTopup = in.nextInt();
-                                                if (jumlahTopup > 0) {
-                                                    saldo.topUp(jumlahTopup);
-                                                    System.out.println("Anda berhasil top up, saldo anda sekarang: "+saldo.getJumlahSaldo());
-                                                } else {
-                                                    System.out.println("Jumlah topup tidak boleh kurang dari 0.\n");
-                                                }
-
-                                        } else if (mau.equals("n")){
-                                            System.out.println("Terimakasih.\n");
+                        try {
+                            System.out.print("Masukkan email: ");
+                            email = in.next();
+                            System.out.print("Masukkan password: ");
+                            password = in.next();
+                            currentUser = (Pemesan) Utility.findPemesan(email, password);
+                            if (currentUser==null) {
+                                System.out.println("Akun tidak ditemukan");
+                            } else {
+                                Utility.separator();
+                                System.out.print("Selamat datang ");
+                                currentUser.printInfo();
+                                System.out.println();
+                                boolean isAccess = true;
+                                while (isAccess){
+                                    pilihPemesan = Utility.menuPemesan();
+                                    switch (pilihPemesan){
+                                        case 1:
+                                            currentUser.bookTiket();
                                             break;
-                                        }
-                                        break;
-                                    case 7:
-                                        System.out.println("Berhasil logout.");
-                                        currentUser = (Pemesan) currentUser.logOut();
-                                        isAccess = false;
-                                        break;
-                                    default:
-                                        System.out.println("Input tidak valid, silahkan input kembali");
-                                        break;
+                                        case 2:
+                                            currentUser.cekTiketPemesan();
+                                            break;
+                                        case 3:
+                                            System.out.print("Input Kode Tiket: ");
+                                            String kode = in.next();
+                                            selectedTiket=currentUser.findTiket(kode);
+                                            if (selectedTiket!=null&&selectedTiket.getStatus().equals("Booked")) {
+                                                System.out.print("Input tanggal keberangkatan baru: ");
+                                                String tgl = in.next();
+                                                selectedTiket.rescheduleTiket(tgl);
+                                                System.out.println("Tiket berhasil diubah jadwal");
+                                            } else {
+                                                System.out.println("Kode tiket tidak ditemukan");
+                                            }
+                                            break;
+                                        case 4:
+                                            System.out.print("Input Kode Tiket: ");
+                                            kode = in.next();
+                                            selectedTiket=currentUser.findTiket(kode);
+                                            if (selectedTiket!=null&&selectedTiket.getStatus().equals("Booked")) {
+                                                selectedTiket.cancelTiket();
+                                                System.out.println("Tiket berhasil dibatalkan");
+
+                                            } else {
+                                                System.out.println("Kode tiket tidak ditemukan");
+                                            }
+                                            break;
+                                        case 5:
+                                            System.out.println("Daftar penumpang: ");
+                                            currentUser.showAllPenumpang();
+                                            break;
+                                        case 6:
+                                            saldo = currentUser.getSaldo();
+                                            System.out.println("Jumlah Saldo: " + saldo.getJumlahSaldo());
+                                            System.out.print("Apakah anda mau top up saldo? (y/n): ");
+                                            String mau = in.next();
+                                            if (mau.equals("y")){
+                                                System.out.print("Masukkan nominal top up: ");
+                                                int jumlahTopup = in.nextInt();
+                                                    if (jumlahTopup > 0) {
+                                                        saldo.topUp(jumlahTopup);
+                                                        System.out.println("Anda berhasil top up, saldo anda sekarang: "+saldo.getJumlahSaldo());
+                                                    } else {
+                                                        System.out.println("Jumlah topup tidak boleh kurang dari 0.\n");
+                                                    }
+
+                                            } else if (mau.equals("n")){
+                                                System.out.println("Terimakasih.\n");
+                                                break;
+                                            }
+                                            break;
+                                        case 7:
+                                            System.out.println("Berhasil logout.");
+                                            currentUser = (Pemesan) currentUser.logOut();
+                                            isAccess = false;
+                                            break;
+                                        default:
+                                            System.out.println("Input tidak valid, silahkan input kembali");
+                                            break;
+                                    }
                                 }
                             }
+                        } catch(Exception e){
+                            System.out.println("Maaf, akun petugas tidak dapat login sebagai Pemesan");
                         }
+                        
+                        
                         break;
                     case 2:
 
@@ -136,7 +142,6 @@ public class TiketKereta {
                             }
 
                             if (foundUser != null) {
-    //                        System.out.println("Akun tidak ditemukan");
                                 if (foundUser instanceof Petugas){
                                     petugas = (Petugas) Utility.findUser(email, password);
                                     Utility.separator();
