@@ -28,32 +28,44 @@ public class Saldo {
     
     public void bayar(int jumlah) {
         Scanner in = new Scanner(System.in);
-        if (getJumlahSaldo() < jumlah) {
-            boolean isAccess = false;
-            System.out.println();
-            while (!isAccess) {
-                Utility.separator();
-                System.out.println("Maaf saldo anda kurang, silahkan Top Up terlebih dahulu");
-                System.out.println();
-                System.out.printf("Saldo anda saat ini: Rp %d,00\n", getJumlahSaldo());
-                System.out.printf("Total kekurangan saldo: Rp %d,00\n", (getJumlahSaldo()-jumlah)*-1);
-                System.out.println();
-                System.out.print("Masukkan jumlah Top Up: ");
-                int nominal = in.nextInt();
-                topUp(nominal);
-                System.out.println();
-                if (getJumlahSaldo() >= jumlah) {
-                    isAccess = true;
+        boolean isValid = false;
+        while (!isValid){
+            try {
+                if (getJumlahSaldo() < jumlah) {
+                    boolean isAccess = false;
+                    System.out.println();
+                    while (!isAccess) {
+                        Utility.separator();
+                        System.out.println("Maaf saldo anda kurang, silahkan Top Up terlebih dahulu");
+                        System.out.println();
+                        System.out.printf("Saldo anda saat ini: Rp %d,00\n", getJumlahSaldo());
+                        System.out.printf("Total kekurangan saldo: Rp %d,00\n", (getJumlahSaldo()-jumlah)*-1);
+                        System.out.println();
+                        System.out.print("Masukkan jumlah Top Up: ");
+                        int nominal = in.nextInt();
+                        topUp(nominal);
+                        isValid = true;
+                        System.out.println();
+                        if (getJumlahSaldo() >= jumlah) {
+                            isAccess = true;
+                        }
+                    }
                 }
+                if (getJumlahSaldo() >= jumlah) {
+                    this.jumlahSaldo -= jumlah;
+                    System.out.println("================== Pembayaran berhasil ==================");
+                    System.out.printf("Pembayaran sebesar : Rp %d,00\n", jumlah);
+                    System.out.printf("Sisa saldo : Rp %d,00\n", getJumlahSaldo());
+                    Utility.separator();
+                    isValid = true;
+                }
+            } catch (Exception e) {
+                System.out.println("Mohon hanya masukkan angka untuk nominal top up");
+                in.nextLine();
             }
         }
-        if (getJumlahSaldo() >= jumlah) {
-            this.jumlahSaldo -= jumlah;
-            System.out.println("================== Pembayaran berhasil ==================");
-            System.out.printf("Pembayaran sebesar : Rp %d,00\n", jumlah);
-            System.out.printf("Sisa saldo : Rp %d,00\n", getJumlahSaldo());
-            Utility.separator();
-        }
+        
+        
     }
     
     public void printInfo() {
