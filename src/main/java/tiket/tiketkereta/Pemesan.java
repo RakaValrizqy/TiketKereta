@@ -40,7 +40,8 @@ public class Pemesan extends Pengguna {
         Kereta selectedKereta;
         TipeKelas selectedTipe;
         Railfood selectedRailfood = null;
-        int idxPenumpang;
+        int idxPenumpang=-1;
+        int idxRailfood=-1;
         String keyTipe;
         
         Utility.separator();
@@ -49,7 +50,7 @@ public class Pemesan extends Pengguna {
         asal = in.next();
         System.out.print("Masukkan kota tujuan: ");
         tujuan = in.next();
-        System.out.print("Masukkan tanggal perjalanan (dd//mm//yyyy): ");
+        System.out.print("Masukkan tanggal perjalanan (dd/mm/yyyy): ");
         tanggal = in.next();
         if (!Utility.checkKeretaOnRoad(asal,tujuan)) {
             System.out.println("Tidak ada kereta yang sesuai dengan destinasi anda");
@@ -80,24 +81,46 @@ public class Pemesan extends Pengguna {
             //System.out.println(selectedTipe.getNamaTipe());
             
             showAllPenumpang();
-            System.out.print("Pilih nomor penumpang: ");
-            idxPenumpang = in.nextInt();
-            while (idxPenumpang < 1 || idxPenumpang>listPenumpang.length){
-                System.out.print("Pilihan tidak valid!\nPilih nomor penumpang: ");
-                idxPenumpang = in.nextInt();
+            boolean penIsValid = false;
+            while(!penIsValid){
+                try {
+                    System.out.print("Pilih nomor penumpang: ");
+                    idxPenumpang = in.nextInt();
+                    while (idxPenumpang < 1 || idxPenumpang>listPenumpang.length){
+                        System.out.print("Pilihan tidak valid!\nPilih nomor penumpang: ");
+                        idxPenumpang = in.nextInt();
+                    }
+                    penIsValid = true;
+                } catch(Exception e){
+                    System.out.println("Pilihan tidak valid. Silakan masukkan angka yang tersedia");
+                    in.nextLine();
+                }
             }
+            
+            
             selectedPenumpang = getPenumpang(idxPenumpang-1);
             
             System.out.print("Ingin memesan Railfood? Y/N: ");
             String yn = in.next();
             if (yn.equalsIgnoreCase("Y")) {
                 Utility.showAllRailfood();
-                System.out.print("Pilih nomor Railfood: ");
-                int idxRailfood = in.nextInt();
-                while (idxRailfood < 1 || idxRailfood>Utility.listRailfood.length){
-                    System.out.print("Pilihan tidak valid!\nPilih nomor Railfood: ");
-                    idxRailfood = in.nextInt();
+                boolean foodIsValid = false;
+                while(!foodIsValid){
+                    try {
+                        System.out.print("Pilih nomor Railfood: ");
+                        idxRailfood = in.nextInt();
+                        while (idxRailfood < 1 || idxRailfood>Utility.listRailfood.length){
+                            System.out.print("Pilihan tidak valid!\nPilih nomor Railfood: ");
+                            idxRailfood = in.nextInt();
+                        }
+                        foodIsValid = true;
+                    } catch (Exception e){
+                        System.out.println("Pilihan tidak valid. Silakan masukkan angka yang tersedia");
+                        in.nextLine();
+                    }
+                    
                 }
+                
                 selectedRailfood = Utility.listRailfood[idxRailfood-1];
                 
             }

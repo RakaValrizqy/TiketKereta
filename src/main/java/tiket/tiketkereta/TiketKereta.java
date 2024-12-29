@@ -93,15 +93,23 @@ public class TiketKereta {
                                             System.out.print("Apakah anda mau top up saldo? (y/n): ");
                                             String mau = in.next();
                                             if (mau.equals("y")){
-                                                System.out.print("Masukkan nominal top up: ");
-                                                int jumlahTopup = in.nextInt();
-                                                    if (jumlahTopup > 0) {
-                                                        saldo.topUp(jumlahTopup);
-                                                        System.out.println("Anda berhasil top up, saldo anda sekarang: "+saldo.getJumlahSaldo());
-                                                    } else {
-                                                        System.out.println("Jumlah topup tidak boleh kurang dari 0.\n");
+                                                boolean topIsValid = false;
+                                                while (!topIsValid){
+                                                    try {
+                                                        System.out.print("Masukkan nominal top up: ");
+                                                        int jumlahTopup = in.nextInt();
+                                                            if (jumlahTopup > 0) {
+                                                                saldo.topUp(jumlahTopup);
+                                                                System.out.println("Anda berhasil top up, saldo anda sekarang: "+saldo.getJumlahSaldo());
+                                                            } else {
+                                                                System.out.println("Jumlah topup tidak boleh kurang dari 0.\n");
+                                                            }
+                                                        topIsValid = true;
+                                                    } catch (Exception e){
+                                                        System.out.println("Mohon hanya masukkan angka untuk nominal top up");
+                                                        in.nextLine();
                                                     }
-
+                                                }
                                             } else if (mau.equals("n")){
                                                 System.out.println("Terimakasih.\n");
                                                 break;
