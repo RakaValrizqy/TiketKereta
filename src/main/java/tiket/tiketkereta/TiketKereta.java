@@ -118,6 +118,9 @@ public class TiketKereta {
                     }
                     break;
                 case 2:
+                    
+                    try {
+                        
                     Utility.separator();
                     System.out.println("Login Petugas\n");
                     System.out.print("Masukkan email: ");
@@ -126,15 +129,12 @@ public class TiketKereta {
                     
                     password = in.next();
                     
-                    try {
                         foundUser = Utility.findUser(email, password);
                         if (foundUser == null){
                             throw new Exception();
                         }
-                    } catch (Exception e) {
-                        System.out.println("Akun tidak ditemukan atau password salah");
-                    }
-                    if (foundUser != null) {
+                        
+                        if (foundUser != null) {
 //                        System.out.println("Akun tidak ditemukan");
                             if (foundUser instanceof Petugas){
                                 petugas = (Petugas) Utility.findUser(email, password);
@@ -165,6 +165,11 @@ public class TiketKereta {
                             }  
                     }
                     break;
+ 
+                    } catch (Exception e) {
+                        System.out.println("Akun tidak ditemukan atau password salah");
+                    }
+                    
                 case 3:
                     System.out.println("Terimakasih dan Sampai Jumpa");
                     isAccessMainMenu = false;
