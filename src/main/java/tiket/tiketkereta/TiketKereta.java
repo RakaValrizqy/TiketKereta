@@ -42,7 +42,7 @@ public class TiketKereta {
                             password = in.next();
                             currentUser = (Pemesan) Utility.findPemesan(email, password);
                             if (currentUser==null) {
-                                System.out.println("Akun tidak ditemukan");
+                                System.out.println("Akun tidak ditemukan atau password salah");
                             } else {
                                 Utility.separator();
                                 System.out.print("Selamat datang ");
