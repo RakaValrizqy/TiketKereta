@@ -167,26 +167,52 @@ public class Utility {
     
     public static int menuPetugas() {
         Scanner in = new Scanner(System.in);
-        System.out.println("====== Menu Petugas ======");
-        System.out.println("1. Lihat Pesanan Railfood");
-        System.out.println("2. Log-out");
-        System.out.print("\nPilih: ");
-        int pilih = in.nextInt();
+        int pilih= -1;
+        boolean isValid = false;
+        
+        while(!isValid){
+            try {
+                System.out.println("====== Menu Petugas ======");
+                System.out.println("1. Lihat Pesanan Railfood");
+                System.out.println("2. Log-out");
+                System.out.print("\nPilih: ");
+                pilih = in.nextInt();
+                isValid = true;
+            } catch(Exception e) {
+                System.out.println("Input tidak valid. Silakan masukkan angka yang tersedia");
+                in.nextLine();
+            }
+        }
+        
+        
         return pilih;
     }
     
     public static int menuPemesan(){
         Scanner in = new Scanner(System.in);
-        System.out.println("----- Menu Pemesan -----");
-        System.out.println("1. Pesan Tiket");
-        System.out.println("2. Lihat Tiket yang Dipesan");
-        System.out.println("3. Resechedule Ticket");
-        System.out.println("4. Cancel Ticket");
-        System.out.println("5. Lihat Data Penumpang");
-        System.out.println("6. Cek Saldo");
-        System.out.println("7. Logout");
-        System.out.print("\nPilih: ");
-        int pilih = in.nextInt();
+        int pilih= -1;
+        boolean isValid = false;
+        
+        while(!isValid){
+            try {
+                System.out.println("----- Menu Pemesan -----");
+                System.out.println("1. Pesan Tiket");
+                System.out.println("2. Lihat Tiket yang Dipesan");
+                System.out.println("3. Resechedule Ticket");
+                System.out.println("4. Cancel Ticket");
+                System.out.println("5. Lihat Data Penumpang");
+                System.out.println("6. Cek Saldo");
+                System.out.println("7. Logout");
+                System.out.print("\nPilih: ");
+                pilih = in.nextInt();
+                isValid = true;
+            } catch(Exception e) {
+                System.out.println("Input tidak valid. Silakan masukkan angka yang tersedia");
+                in.nextLine();
+            }
+        }
+        
+        
         return pilih;
     }   
 }
